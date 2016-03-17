@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:background="#000000">
+
+    <Button
+        android:id="@+id/buttonPower"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:onClick="irSend"
+        android:text="Power" />
+
+    <Button
+        android:id="@+id/buttonVolDown"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonPower"
+        android:layout_toLeftOf="@+id/buttonPower"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="30dp"
+        android:onClick="irSend"
+        android:text="Vol-" />
+
+    <Button
+        android:id="@+id/buttonMute"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonVolDown"
+        android:layout_toRightOf="@+id/buttonVolDown"
+        android:layout_marginRight="30dp"
+        android:onClick="irSend"
+        android:text="Mute" />
+
+    <Button
+        android:id="@+id/buttonVolUp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonMute"
+        android:layout_toRightOf="@+id/buttonMute"
+        android:onClick="irSend"
+        android:text="Vol+" />
+
+
+    <Button
+        android:id="@+id/buttonTuner"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonVolDown"
+        android:layout_alignLeft="@+id/buttonVolDown"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="30dp"
+        android:onClick="irSend"
+        android:text="Tuner" />
+
+    <Button
+        android:id="@+id/buttonPhono"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonTuner"
+        android:layout_toRightOf="@+id/buttonTuner"
+        android:layout_marginRight="30dp"
+        android:onClick="irSend"
+        android:text="Phono" />
+
+    <Button
+        android:id="@+id/buttonAux"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonPhono"
+        android:layout_toRightOf="@+id/buttonPhono"
+        android:layout_marginRight="30dp"
+        android:onClick="irSend"
+        android:text="Aux" />
+
+    <Button
+        android:id="@+id/buttonCD"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonAux"
+        android:layout_toRightOf="@+id/buttonAux"
+        android:onClick="irSend"
+        android:text="CD" />
+
+
+</RelativeLayout>
