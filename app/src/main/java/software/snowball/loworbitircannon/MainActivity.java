@@ -202,31 +202,52 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        //either loop here or just start runnable
+        //creates thread to handle rapid mode
         new Thread(new Runnable() {
             Random rnd = new Random();
             @Override
             public void run() {
-                for (int i = 0; i < 20; i++) {
-                    int t = rnd.nextInt(5);
+                for (int i = 0; i < 15; i++) {
+                    int t = rnd.nextInt(3);
                     if (t == 0) {
-                        ir.transmit(fr, NECfocusp);
+                        //make projector focus repeatedly
+                        for (int y = 0; y < 20; y++) {
+                            ir.transmit(fr, NECfocusp);
+                            try {
+                                Thread.sleep(200);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
                     } else if (t == 1) {
-                        ir.transmit(fr, NECfocusm);
-                    } else if (t == 2) {
-                        ir.transmit(fr ,NECinput);
-                    } else if (t == 3) {
-                        ir.transmit(fr, NECbrightnessp);
+                        //make projector zoom in repeatedly
+                        for (int y = 0; y < 20; y++) {
+                            ir.transmit(fr, NECzoomp);
+                            try {
+                                Thread.sleep(200);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     } else {
-                        ir.transmit(fr, NECbrightnessm);
+                        ir.transmit(fr, NECinput);
                     }
 
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
+                //simulating projector crash by turning off at the end of the rapid mode
+                ir.transmit(fr, NECpOff);
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                ir.transmit(fr, NECpOff);
             }
         }).start();
     }
