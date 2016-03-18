@@ -55,6 +55,18 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/btnBrightnessp"
+            android:text="Brightness +"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnBrightnessm"
+            android:text="Brightness -"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/btnRapid"
             android:text="Rapid Mode"/>
 

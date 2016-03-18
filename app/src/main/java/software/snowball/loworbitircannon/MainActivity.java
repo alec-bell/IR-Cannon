@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     Button video;
     Button focusp; //focus in
     Button focusm; //focus out
+    Button brightnessp; //raise brightness
+    Button brightnessm; //lower brightness
     Button rapid;
     int fr;
     //IR codes for NEC
@@ -52,6 +54,23 @@ public class MainActivity extends AppCompatActivity {
     final int[] NECfocusm = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564,
             564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564,
             564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 40884};
+    final int[] NECbrightnessp = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564,
+            564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564,
+            564, 564, 564, 564, 564, 564, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 40884};
+    final int[] NECbrightnessm = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564,
+            564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564,
+            564, 564, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 40884};
+    final int[] NECcontrastp = {}; //raise contrast
+    final int[] NECcontrastm = {}; //lower contrast
+    final int[] NECsetup = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564,
+            564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564,
+            564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 40884};
+    final int[] NECzoomp = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564,
+            564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 564, 564,
+            564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 40884}; //zoom towards
+    final int[] NECzoomm = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564,
+            564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 564, 564, 564, 564,
+            564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 40884}; //zoom away
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         video = (Button) findViewById(R.id.btnInput);
         focusp = (Button) findViewById(R.id.btnFocusP);
         focusm = (Button) findViewById(R.id.btnFocusM);
+        brightnessp = (Button) findViewById(R.id.btnBrightnessp);
+        brightnessm = (Button) findViewById(R.id.btnBrightnessm);
         rapid = (Button) findViewById(R.id.btnRapid);
 
 
@@ -146,6 +167,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        brightnessp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!ir.hasIrEmitter()) {
+                    return;
+                }
+
+                ir.transmit(fr, NECbrightnessp);
+            }
+        });
+
+        brightnessm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!ir.hasIrEmitter()) {
+                    return;
+                }
+
+                ir.transmit(fr, NECbrightnessm);
+            }
+        });
+
         rapid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -165,13 +208,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 for (int i = 0; i < 20; i++) {
-                    int t = rnd.nextInt(3);
+                    int t = rnd.nextInt(5);
                     if (t == 0) {
                         ir.transmit(fr, NECfocusp);
                     } else if (t == 1) {
                         ir.transmit(fr, NECfocusm);
-                    } else {
+                    } else if (t == 2) {
                         ir.transmit(fr ,NECinput);
+                    } else if (t == 3) {
+                        ir.transmit(fr, NECbrightnessp);
+                    } else {
+                        ir.transmit(fr, NECbrightnessm);
                     }
 
                     try {
