@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LOIRC.iml" filepath="$PROJECT_DIR$/LOIRC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LowOrbitIRCannon.iml" filepath="$PROJECT_DIR$/LowOrbitIRCannon.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

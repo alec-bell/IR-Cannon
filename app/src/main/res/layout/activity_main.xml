@@ -19,6 +19,12 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/btnPower"
+            android:text="Power"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/btnPowerOn"
             android:text="Power On"/>
 
@@ -31,14 +37,26 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnMenu"
+            android:id="@+id/btnInput"
             android:text="Input (Video)"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnInput"
-            android:text="Input"/>
+            android:id="@+id/btnFocusP"
+            android:text="Focus +"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnFocusM"
+            android:text="Focus -"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRapid"
+            android:text="Rapid Mode"/>
 
     </LinearLayout>
 
