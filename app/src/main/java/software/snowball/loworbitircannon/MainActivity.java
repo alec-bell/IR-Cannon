@@ -1,5 +1,6 @@
 package software.snowball.loworbitircannon;
 
+import android.content.Intent;
 import android.hardware.ConsumerIrManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     Button zoomp;
     Button zoomm;
     Button rapid;
+    Button settings; //temporary settings button, will eventually change
+    //We need to eventually add the options button to toolbar, and put settings and about buttons in there
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         zoomp = (Button) findViewById(R.id.btnZoomp);
         zoomm = (Button) findViewById(R.id.btnZoomm);
         rapid = (Button) findViewById(R.id.btnRapid);
+        settings = (Button) findViewById(R.id.btnSettings);
 
         irUtil = new IRUtil(getApplicationContext());
 
@@ -111,6 +115,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 irUtil.rapidMode();
+            }
+        });
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(intent);
             }
         });
     }
