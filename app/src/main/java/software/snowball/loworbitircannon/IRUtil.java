@@ -206,4 +206,52 @@ public class IRUtil {
             }
         }).start();
     }
+
+    public void springMode() {
+        if (!ir.hasIrEmitter()) {
+            return;
+        }
+
+        //spring mode thread
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 0; i <= 10; i++) {
+                    //zoom in 5 times
+                    for (int y = 0; y <= 5; y++) {
+                        zoomP();
+                        try {
+                            Thread.sleep(200);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    //wait a second before zooming out again
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    //zoom out 5 times
+                    for (int y = 0; y <= 5; y++) {
+                        zoomM();
+                        try {
+                            Thread.sleep(200);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    //wait a second before zooming in again
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+    }
 }

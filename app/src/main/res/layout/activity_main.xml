@@ -158,6 +158,19 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/btnSpring"
+                    android:text="Spring Mode"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/btnSettings"
                     android:text="Settings"/>
 

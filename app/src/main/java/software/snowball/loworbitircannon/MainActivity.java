@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button zoomp;
     Button zoomm;
     Button rapid;
+    Button spring;
     Button settings; //temporary settings button, will eventually change
     //We need to eventually add the options button to toolbar, and put settings and about buttons in there
 
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         zoomp = (Button) findViewById(R.id.btnZoomp);
         zoomm = (Button) findViewById(R.id.btnZoomm);
         rapid = (Button) findViewById(R.id.btnRapid);
+        spring = (Button) findViewById(R.id.btnSpring);
         settings = (Button) findViewById(R.id.btnSettings);
 
         irUtil = new IRUtil(getApplicationContext());
@@ -115,6 +117,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 irUtil.rapidMode();
+            }
+        });
+        spring.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irUtil.springMode();
             }
         });
         settings.setOnClickListener(new View.OnClickListener() {
