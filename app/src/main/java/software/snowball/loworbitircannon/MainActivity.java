@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.hardware.ConsumerIrManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
     ConsumerIrManager ir;
     IRUtil irUtil;
+
+    Toolbar toolbar;
+
     Button power;
     Button powerOn;
     Button powerOff;
@@ -27,13 +33,16 @@ public class MainActivity extends AppCompatActivity {
     Button zoomm;
     Button rapid;
     Button spring;
-    Button settings; //temporary settings button, will eventually change
     //We need to eventually add the options button to toolbar, and put settings and about buttons in there
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //set up toolbar
+        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
 
         //initializing objects
         power = (Button) findViewById(R.id.btnPower);
@@ -48,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         zoomm = (Button) findViewById(R.id.btnZoomm);
         rapid = (Button) findViewById(R.id.btnRapid);
         spring = (Button) findViewById(R.id.btnSpring);
-        settings = (Button) findViewById(R.id.btnSettings);
 
         irUtil = new IRUtil(getApplicationContext());
 
@@ -125,15 +133,30 @@ public class MainActivity extends AppCompatActivity {
                 irUtil.springMode();
             }
         });
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //about and settings options on toolbar
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_about:
+                //Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
+                //startActivity(intent);
+                return true;
+            case R.id.action_settings:
+                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 }
