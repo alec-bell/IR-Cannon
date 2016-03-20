@@ -54,4 +54,9 @@
 
     <string name="pref_title_vibrate">Vibrate When Command is Sent</string>
     <string name="vibrate_summary">Not including rapid modes</string>
+
+    <string name="loirc_about"><i>Low Orbit IR Cannon</i> is a infrared remote mobile application that is capable of functioning with many television and projector sets. It includes extra functionality that may be used to test out infrared technology at home.</string>
+    <string name="snowball_software_about"><b>Snowball Software, LLC</b> is a software development company based out of Cincinnati, Ohio.</string>
+
+    <string name="title_activity_about">About</string>
 </resources>

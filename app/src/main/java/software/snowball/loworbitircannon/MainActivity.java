@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     Button zoomm;
     Button rapid;
     Button spring;
-    //We need to eventually add the options button to toolbar, and put settings and about buttons in there
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,12 +146,12 @@ public class MainActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_about:
-                //Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
-                //startActivity(intent);
+                Intent about = new Intent(getApplicationContext(), AboutActivity.class);
+                startActivity(about);
                 return true;
             case R.id.action_settings:
-                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-                startActivity(intent);
+                Intent settings = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(settings);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
