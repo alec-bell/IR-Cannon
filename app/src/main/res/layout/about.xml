@@ -37,6 +37,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/imgPic"
+                    android:src="@drawable/loic"/>
+
                 <TextView
                     android:id="@+id/LOIRCabout"
                     android:text="@string/loirc_about"

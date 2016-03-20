@@ -155,26 +155,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:layout_margin="5dip">
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:id="@+id/btnRapid"
-                        android:text="Rapid Mode"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dip">
+                        android:text="Rapid"/>
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:id="@+id/btnSpring"
-                        android:text="Spring Mode"/>
+                        android:text="Spring"/>
 
                 </LinearLayout>
 

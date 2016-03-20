@@ -216,9 +216,9 @@ public class IRUtil {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for(int i = 0; i <= 10; i++) {
+                for(int i = 0; i < 10; i++) {
                     //zoom in 5 times
-                    for (int y = 0; y <= 5; y++) {
+                    for (int y = 0; y < 5; y++) {
                         zoomP();
                         try {
                             Thread.sleep(200);
@@ -235,7 +235,7 @@ public class IRUtil {
                     }
 
                     //zoom out 5 times
-                    for (int y = 0; y <= 5; y++) {
+                    for (int y = 0; y < 5; y++) {
                         zoomM();
                         try {
                             Thread.sleep(200);
