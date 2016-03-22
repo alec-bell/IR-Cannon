@@ -51,21 +51,21 @@
                     android:orientation="horizontal"
                     android:layout_margin="5dip">
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/btnPower"
                         android:text="Power"
                         android:layout_weight="1"/>
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/btnPowerOn"
                         android:text="Power On"
                         android:layout_weight="1"/>
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/btnPowerOff"
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dip">
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/btnInput"
@@ -93,14 +93,14 @@
                     android:orientation="horizontal"
                     android:layout_margin="5dip">
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/btnFocusP"
                         android:layout_weight="1"
                         android:text="Focus +"/>
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/btnFocusM"
@@ -115,14 +115,14 @@
                     android:layout_margin="5dip"
                     android:orientation="horizontal">
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:id="@+id/btnBrightnessp"
                         android:text="Brightness +"/>
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -136,14 +136,14 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dip">
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:id="@+id/btnZoomp"
                         android:text="Zoom +"/>
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -158,14 +158,14 @@
                     android:orientation="horizontal"
                     android:layout_margin="5dip">
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:id="@+id/btnRapid"
                         android:text="Rapid"/>
 
-                    <Button
+                    <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

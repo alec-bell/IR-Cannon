@@ -167,7 +167,7 @@ public class IRUtil {
                     if (t == 0) {
                         //make projector focus repeatedly
                         for (int y = 0; y < 20; y++) {
-                            ir.transmit(fr, NECfocusp);
+                            focusP();
                             try {
                                 Thread.sleep(200);
                             } catch (InterruptedException e) {
@@ -178,7 +178,7 @@ public class IRUtil {
                     } else if (t == 1) {
                         //make projector zoom in repeatedly
                         for (int y = 0; y < 20; y++) {
-                            ir.transmit(fr, NECzoomp);
+                            zoomP();
                             try {
                                 Thread.sleep(200);
                             } catch (InterruptedException e) {
@@ -186,7 +186,7 @@ public class IRUtil {
                             }
                         }
                     } else {
-                        ir.transmit(fr, NECinput);
+                        input();
                     }
 
                     try {
