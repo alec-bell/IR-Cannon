@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.gc.materialdesign.views.ButtonRectangle;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -21,18 +23,18 @@ public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
-    Button power;
-    Button powerOn;
-    Button powerOff;
-    Button video;
-    Button focusp; //focus in
-    Button focusm; //focus out
-    Button brightnessp; //raise brightness
-    Button brightnessm; //lower brightness
-    Button zoomp;
-    Button zoomm;
-    Button rapid;
-    Button spring;
+    ButtonRectangle power;
+    ButtonRectangle powerOn;
+    ButtonRectangle powerOff;
+    ButtonRectangle video;
+    ButtonRectangle focusp; //focus in
+    ButtonRectangle focusm; //focus out
+    ButtonRectangle brightnessp; //raise brightness
+    ButtonRectangle brightnessm; //lower brightness
+    ButtonRectangle zoomp;
+    ButtonRectangle zoomm;
+    ButtonRectangle rapid;
+    ButtonRectangle spring;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,18 +46,18 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //initializing objects
-        power = (Button) findViewById(R.id.btnPower);
-        powerOn = (Button) findViewById(R.id.btnPowerOn);
-        powerOff = (Button) findViewById(R.id.btnPowerOff);
-        video = (Button) findViewById(R.id.btnInput);
-        focusp = (Button) findViewById(R.id.btnFocusP);
-        focusm = (Button) findViewById(R.id.btnFocusM);
-        brightnessp = (Button) findViewById(R.id.btnBrightnessp);
-        brightnessm = (Button) findViewById(R.id.btnBrightnessm);
-        zoomp = (Button) findViewById(R.id.btnZoomp);
-        zoomm = (Button) findViewById(R.id.btnZoomm);
-        rapid = (Button) findViewById(R.id.btnRapid);
-        spring = (Button) findViewById(R.id.btnSpring);
+        power = (ButtonRectangle) findViewById(R.id.btnPower);
+        powerOn = (ButtonRectangle) findViewById(R.id.btnPowerOn);
+        powerOff = (ButtonRectangle) findViewById(R.id.btnPowerOff);
+        video = (ButtonRectangle) findViewById(R.id.btnInput);
+        focusp = (ButtonRectangle) findViewById(R.id.btnFocusP);
+        focusm = (ButtonRectangle) findViewById(R.id.btnFocusM);
+        brightnessp = (ButtonRectangle) findViewById(R.id.btnBrightnessp);
+        brightnessm = (ButtonRectangle) findViewById(R.id.btnBrightnessm);
+        zoomp = (ButtonRectangle) findViewById(R.id.btnZoomp);
+        zoomm = (ButtonRectangle) findViewById(R.id.btnZoomm);
+        rapid = (ButtonRectangle) findViewById(R.id.btnRapid);
+        spring = (ButtonRectangle) findViewById(R.id.btnSpring);
 
         irUtil = new IRUtil(getApplicationContext());
 

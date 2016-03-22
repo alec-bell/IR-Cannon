@@ -40,8 +40,8 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:id="@+id/imgPic"
-                    android:src="@drawable/loic"/>
+                    android:id="@+id/imgPic1"
+                    android:src="@drawable/loic1"/>
 
                 <TextView
                     android:id="@+id/LOIRCabout"

@@ -31,19 +31,19 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:id="@+id/imgPic"
-            android:src="@drawable/loic"/>
+            android:id="@+id/imgPic1"
+            android:src="@drawable/loic1"/>
 
         <com.gc.materialdesign.views.ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imgPic">
+            android:layout_below="@+id/imgPic1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_below="@id/imgPic">
+                android:layout_below="@id/imgPic1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
