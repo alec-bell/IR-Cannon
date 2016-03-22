@@ -3,6 +3,8 @@ package software.snowball.loworbitircannon;
 import android.content.Context;
 import android.hardware.ConsumerIrManager;
 
+import com.gc.materialdesign.widgets.Dialog;
+
 import java.util.Random;
 
 /**
@@ -52,8 +54,8 @@ public class IRUtil {
             564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 564, 564, 564, 564,
             564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 40884}; //zoom away
 
-    public IRUtil(Context context) {
-        ir = (ConsumerIrManager)context.getSystemService(context.CONSUMER_IR_SERVICE);
+    public IRUtil(Context c) {
+        ir = (ConsumerIrManager)c.getSystemService(c.CONSUMER_IR_SERVICE);
         overridePrompt = false; //defaults to false
         frTest();
     }
@@ -67,13 +69,6 @@ public class IRUtil {
     }
     public void frTest() {
         fr = 37000;
-
-        if (ir.hasIrEmitter()) {
-            ConsumerIrManager.CarrierFrequencyRange[] freqs = ir.getCarrierFrequencies();
-            for (ConsumerIrManager.CarrierFrequencyRange range : freqs) {
-                fr = range.getMaxFrequency();
-            }
-        }
     }
 
     public boolean willWork() {
@@ -83,19 +78,25 @@ public class IRUtil {
 
     //command functions
     public void power() {
-        if (!willWork()) return;
+        if (!willWork()) {
+            return;
+        }
 
         ir.transmit(fr, NECp);
     }
 
     public void powerOn() {
-        if (!willWork()) return;
+        if (!willWork()) {
+            return;
+        }
 
         ir.transmit(fr, NECpOn);
     }
 
     public void powerOff() {
-        if (!willWork()) return;
+        if (!willWork()) {
+            return;
+        }
 
         if (overridePrompt) { //if override prompt is enabled, send command twice, to bypass the "Are you sure?" dialog and automatically turn projector off
             ir.transmit(fr, NECpOff);
@@ -111,43 +112,57 @@ public class IRUtil {
     }
 
     public void input() {
-        if (!willWork()) return;
+        if (!willWork()) {
+            return;
+        }
 
         ir.transmit(fr, NECinput);
     }
 
     public void focusP() {
-        if (!willWork()) return;
+        if (!willWork()) {
+            return;
+        }
 
         ir.transmit(fr, NECfocusp);
     }
 
     public void focusM() {
-        if (!willWork()) return;
+        if (!willWork()) {
+            return;
+        }
 
         ir.transmit(fr, NECfocusm);
     }
 
     public void brightnessP() {
-        if (!willWork()) return;
+        if (!willWork()) {
+            return;
+        }
 
         ir.transmit(fr, NECbrightnessp);
     }
 
     public void brightnessM() {
-        if (!willWork()) return;
+        if (!willWork()) {
+            return;
+        }
 
         ir.transmit(fr, NECbrightnessm);
     }
 
     public void zoomP() {
-        if (!willWork()) return;
+        if (!willWork()) {
+            return;
+        }
 
         ir.transmit(fr, NECzoomp);
     }
 
     public void zoomM() {
-        if (!willWork()) return;
+        if (!willWork()) {
+            return;
+        }
 
         ir.transmit(fr, NECzoomm);
     }
