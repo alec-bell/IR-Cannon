@@ -12,6 +12,7 @@ import java.util.Random;
  */
 public class IRUtil {
     private ConsumerIrManager ir;
+    private BrandConst brandConst;
     private int fr;
     private boolean overridePrompt; //for poweroff command (changed in settings eventually)
 
@@ -56,6 +57,7 @@ public class IRUtil {
 
     public IRUtil(Context c) {
         ir = (ConsumerIrManager)c.getSystemService(c.CONSUMER_IR_SERVICE);
+        brandConst = new BrandConst();
         overridePrompt = false; //defaults to false
         frTest();
     }
