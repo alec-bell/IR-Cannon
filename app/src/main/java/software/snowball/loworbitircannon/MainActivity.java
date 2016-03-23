@@ -1,14 +1,19 @@
 package software.snowball.loworbitircannon;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.ConsumerIrManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.gc.materialdesign.widgets.Dialog;
@@ -18,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     //another good site: irdb.tk
     //NOTE: NEC is the only brand that's supported as of now
+    //NOTE: isFirstRun() is always true right now, for testing purposes.  it can be changed in the checkFirstRun() method.
 
     ConsumerIrManager ir;
     IRUtil irUtil;
@@ -36,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     ButtonRectangle zoomm;
     ButtonRectangle rapid;
     ButtonRectangle spring;
+    TextView brand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
         zoomm = (ButtonRectangle) findViewById(R.id.btnZoomm);
         rapid = (ButtonRectangle) findViewById(R.id.btnRapid);
         spring = (ButtonRectangle) findViewById(R.id.btnSpring);
+        brand = (TextView) findViewById(R.id.tvBrand);
 
         irUtil = new IRUtil(getApplicationContext());
+        checkFirstRun();
 
         //setting listeners to handle clicking
         power.setOnClickListener(new View.OnClickListener() {
@@ -158,6 +167,56 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void checkFirstRun() {
+        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
+        isFirstRun = true; //for testing purposes only
+        if (isFirstRun) {
+            //prompt user for brand
+            showInputDialog();
+            //modify isFirstRun to be false
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                    .edit()
+                    .putBoolean("isFirstRun", false)
+                    .apply();
+        }
+    }
+
+    protected void showInputDialog() {
+
+        // get prompts.xml view
+        LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
+        View promptView = layoutInflater.inflate(R.layout.input_dialog, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+        alertDialogBuilder.setView(promptView);
+
+        final EditText editText = (EditText) promptView.findViewById(R.id.edittext);
+        // setup a dialog window
+        alertDialogBuilder.setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        if (editText.getText().toString().matches("")) {
+                            irUtil.setCurBrand("NEC");
+                            brand.setText("Current Brand: " + "NEC");
+                        } else {
+                            irUtil.setCurBrand(editText.getText().toString().toUpperCase());
+                            brand.setText("Current Brand: " + editText.getText().toString().toUpperCase());
+                        }
+                    }
+                })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //default brand to NEC
+                                irUtil.setCurBrand("NEC");
+                                dialog.cancel();
+                            }
+                        });
+
+        // create an alert dialog
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
 }

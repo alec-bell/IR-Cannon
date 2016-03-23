@@ -45,6 +45,14 @@
                 android:orientation="vertical"
                 android:layout_below="@id/imgPic1">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_margin="10dip"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:id="@+id/tvBrand"
+                    android:text="Current Brand: NEC"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
