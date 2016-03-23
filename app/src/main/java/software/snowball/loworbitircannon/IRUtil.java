@@ -13,8 +13,13 @@ import java.util.Random;
 public class IRUtil {
     private ConsumerIrManager ir;
     private BrandConst brandConst;
+    private String curBrand;
     private int fr;
     private boolean overridePrompt; //for poweroff command (changed in settings eventually)
+
+    //command names for brandConst
+    final String[] funcs = {"power", "poweron", "poweroff", "input", "focusp", "focusm", "brightnessp", "brightnessm", "contrastp", "contrastm",
+            "setup", "zoomp", "zoomm"};
 
     //IR codes for NEC
     final int[] NECp = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564,
@@ -58,11 +63,14 @@ public class IRUtil {
     public IRUtil(Context c) {
         ir = (ConsumerIrManager)c.getSystemService(c.CONSUMER_IR_SERVICE);
         brandConst = new BrandConst();
+        curBrand = "NEC"; //defaults to NEC, will eventually change to whatever user is prompted with on startup
         overridePrompt = false; //defaults to false
         frTest();
     }
 
     //misc methods
+    public void setCurBrand(String b) { this.curBrand = b; }
+    public String getCurBrand() { return this.curBrand; }
     public void setFr(int fr) {
         this.fr = fr;
     }
@@ -78,13 +86,15 @@ public class IRUtil {
         return ir.hasIrEmitter();
     }
 
+    //see String[] funcs for command names and position
+
     //command functions
     public void power() {
         if (!willWork()) {
             return;
         }
 
-        ir.transmit(fr, NECp);
+        ir.transmit(fr, brandConst.getCommand(funcs[0], curBrand));;
     }
 
     public void powerOn() {
@@ -92,7 +102,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, NECpOn);
+        ir.transmit(fr, brandConst.getCommand(funcs[1], curBrand));
     }
 
     public void powerOff() {
@@ -101,15 +111,15 @@ public class IRUtil {
         }
 
         if (overridePrompt) { //if override prompt is enabled, send command twice, to bypass the "Are you sure?" dialog and automatically turn projector off
-            ir.transmit(fr, NECpOff);
+            ir.transmit(fr, brandConst.getCommand(funcs[2], curBrand));
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            ir.transmit(fr, NECpOff);
+            ir.transmit(fr, brandConst.getCommand(funcs[2], curBrand));
         } else {
-            ir.transmit(fr, NECpOff);
+            ir.transmit(fr, brandConst.getCommand(funcs[2], curBrand));
         }
     }
 
@@ -118,7 +128,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, NECinput);
+        ir.transmit(fr, brandConst.getCommand(funcs[3], curBrand));
     }
 
     public void focusP() {
@@ -126,7 +136,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, NECfocusp);
+        ir.transmit(fr, brandConst.getCommand(funcs[4], curBrand));
     }
 
     public void focusM() {
@@ -134,7 +144,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, NECfocusm);
+        ir.transmit(fr, brandConst.getCommand(funcs[5], curBrand));
     }
 
     public void brightnessP() {
@@ -142,7 +152,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, NECbrightnessp);
+        ir.transmit(fr, brandConst.getCommand(funcs[6], curBrand));;
     }
 
     public void brightnessM() {
@@ -150,7 +160,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, NECbrightnessm);
+        ir.transmit(fr, brandConst.getCommand(funcs[7], curBrand));;
     }
 
     public void zoomP() {
@@ -158,7 +168,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, NECzoomp);
+        ir.transmit(fr, brandConst.getCommand(funcs[8], curBrand));;
     }
 
     public void zoomM() {
@@ -166,7 +176,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, NECzoomm);
+        ir.transmit(fr, brandConst.getCommand(funcs[9], curBrand));;
     }
 
     public void rapidMode() {

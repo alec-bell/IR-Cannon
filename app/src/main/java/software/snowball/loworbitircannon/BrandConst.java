@@ -6,16 +6,16 @@ import java.util.List;
 
 /**
  * Created by zachrudy on 3/21/16.
+ * I know this code is super bad, but I'm still working on it
  */
 public class BrandConst {
 
-    private List<String> ids;
     private List<int[]> NEC;
     private List<int[]> Epson;
     private List<int[]> Samsung;
 
     //IR codes for NEC
-    final String[] n = {"power", "poweron", "poweroff", "input", "focusp", "focusm", "brightnessp", "brightnessm", "contrastp", "contrastm",
+    final String[] funcs = {"power", "poweron", "poweroff", "input", "focusp", "focusm", "brightnessp", "brightnessm", "contrastp", "contrastm",
             "setup", "zoomp", "zoomm"};
     final int[] NECp = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564,
             564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564,
@@ -85,16 +85,8 @@ public class BrandConst {
     final int[] Samzoomp = {};
     final int[] Samzoomm = {};
 
-    /**
-    **
-     * default constructor for brandconst
-     * takes no parameters
-     * need to figure out better way of putting brand codes into respective const lists
-     * will get hard when adding more brands
-     *
-     **/
+    //I understand that this is super immature code
     public BrandConst() {
-        ids = new ArrayList<>(Arrays.asList(n));
         NEC = new ArrayList<>();
         Epson = new ArrayList<>();
         Samsung = new ArrayList<>();
@@ -140,69 +132,32 @@ public class BrandConst {
         Samsung.add(Samzoomm);
     }
 
-    public int[] getPower(String Brand) {
-        switch (Brand) {
-            case "NEC":
-                return NEC.get(0);
-            case "Epson":
-                return Epson.get(0);
-            default:
-                return null;
+    public int[] getCommand(String command, String brand) {
+        //loop through to find command index
+        int index = 0;
+        for (int i = 0; i < funcs.length; i++) {
+            if (command.equalsIgnoreCase(funcs[i])) {
+                index = i;
+                break;
+            }
         }
-    }
 
-    public int[] getPowerOn(String Brand) {
-        switch (Brand) {
+        int[] ans;
+        switch (brand) {
             case "NEC":
-                return NEC.get(1);
+                ans = NEC.get(index);
+                break;
             case "Epson":
-                return Epson.get(1);
+                ans = Epson.get(index);
+                break;
+            case "Samsung":
+                ans = Samsung.get(index);
+                break;
             default:
-                return null;
+                ans = new int[0];
+                break;
         }
-    }
 
-    public int[] getPowerOff(String Brand) {
-        switch (Brand) {
-            case "NEC":
-                return NEC.get(2);
-            case "Epson":
-                return Epson.get(2);
-            default:
-                return null;
-        }
-    }
-
-    public int[] getInput(String Brand) {
-        switch (Brand) {
-            case "NEC":
-                return NEC.get(3);
-            case "Epson":
-                return Epson.get(3);
-            default:
-                return null;
-        }
-    }
-
-    public int[] getFocusp(String Brand) {
-        switch (Brand) {
-            case "NEC":
-                return NEC.get(4);
-            case "Epson":
-                return Epson.get(4);
-            default:
-                return null;
-        }
-    }
-
-    public int[] getFocusm(String Brand) {
-        switch (Brand) {
-            case "NEC":
-                return NEC.get(5);
-            case "Epson":
-                return Epson.get(5);
-            default:
-                return null;
-        }
+        return ans;
     }
 }
