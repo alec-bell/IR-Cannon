@@ -14,9 +14,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.gc.materialdesign.widgets.Dialog;
+
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     IRUtil irUtil;
 
     Toolbar toolbar;
-
+    private final String[] brands = {"NEC", "SAMSUNG", "EPSON"};
     ButtonRectangle power;
     ButtonRectangle powerOn;
     ButtonRectangle powerOff;
@@ -196,12 +199,26 @@ public class MainActivity extends AppCompatActivity {
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        if (editText.getText().toString().matches("")) {
+                        if (!editText.getText().toString().matches("")) {
+                            boolean isValid = false;
+                            for (int i = 0; i < brands.length; i++) {
+                                if (editText.getText().toString().toUpperCase().trim() == brands[i]) {
+                                    isValid = true;
+                                    break;
+                                }
+                            }
+                            if (isValid) {
+                                irUtil.setCurBrand(editText.getText().toString().toUpperCase());
+                                brand.setText("Current Brand: " + editText.getText().toString().toUpperCase());
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Brand not found! Defaulting to NEC", Toast.LENGTH_LONG).show();
+                                irUtil.setCurBrand("NEC");
+                                brand.setText("Current Brand: " + "NEC");
+                            }
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Brand not found! Defaulting to NEC", Toast.LENGTH_LONG).show();
                             irUtil.setCurBrand("NEC");
                             brand.setText("Current Brand: " + "NEC");
-                        } else {
-                            irUtil.setCurBrand(editText.getText().toString().toUpperCase());
-                            brand.setText("Current Brand: " + editText.getText().toString().toUpperCase());
                         }
                     }
                 })
