@@ -166,9 +166,9 @@ public class IRUtil {
                         }
 
                     } else if (t == 1) {
-                        //make projector zoom in repeatedly
+                        //make projector zoom in repeatedly (not working as of 4/5/16, just set to focus in and out)
                         for (int y = 0; y < 20; y++) {
-                            zoomP();
+                            focusM();
                             try {
                                 Thread.sleep(200);
                             } catch (InterruptedException e) {
@@ -209,7 +209,7 @@ public class IRUtil {
                 for(int i = 0; i < 10; i++) {
                     //zoom in 5 times
                     for (int y = 0; y < 5; y++) {
-                        zoomP();
+                        focusP();
                         try {
                             Thread.sleep(200);
                         } catch (InterruptedException e) {
@@ -226,7 +226,7 @@ public class IRUtil {
 
                     //zoom out 5 times
                     for (int y = 0; y < 5; y++) {
-                        zoomM();
+                        focusM();
                         try {
                             Thread.sleep(200);
                         } catch (InterruptedException e) {

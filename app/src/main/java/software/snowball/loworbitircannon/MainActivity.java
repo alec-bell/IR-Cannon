@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkFirstRun() {
         boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
-        isFirstRun = true; //for testing purposes only
+        //isFirstRun = true; //for testing purposes only
         if (isFirstRun) {
             //prompt user for brand
             showInputDialog();
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!editText.getText().toString().matches("")) {
                             boolean isValid = false;
                             for (int i = 0; i < brands.length; i++) {
-                                if (editText.getText().toString().toUpperCase().trim() == brands[i]) {
+                                if (brands[i].equals(editText.getText().toString().toUpperCase().trim())) {
                                     isValid = true;
                                     break;
                                 }
