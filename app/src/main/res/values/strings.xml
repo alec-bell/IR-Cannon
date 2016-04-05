@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Low Orbit IR Cannon</string>
+    <string name="app_name">IR Cannon</string>
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->
