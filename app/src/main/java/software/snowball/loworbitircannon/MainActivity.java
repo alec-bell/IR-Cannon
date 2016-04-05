@@ -211,9 +211,9 @@ public class MainActivity extends AppCompatActivity {
                                 irUtil.setCurBrand(editText.getText().toString().toUpperCase());
                                 brand.setText("Current Brand: " + editText.getText().toString().toUpperCase());
                             } else {
-                                Toast.makeText(getApplicationContext(), "Brand not found! Defaulting to NEC", Toast.LENGTH_LONG).show();
-                                irUtil.setCurBrand("NEC");
-                                brand.setText("Current Brand: " + "NEC");
+                                Toast.makeText(getApplicationContext(), "Brand not found! Defaulting to SAMSUNG", Toast.LENGTH_LONG).show();
+                                irUtil.setCurBrand("SAMSUNG");
+                                brand.setText("Current Brand: " + "SAMSUNG");
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "Brand not found! Defaulting to NEC", Toast.LENGTH_LONG).show();
