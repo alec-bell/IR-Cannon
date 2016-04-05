@@ -69,7 +69,9 @@ public class IRUtil {
     }
 
     //misc methods
-    public void setCurBrand(String b) { this.curBrand = b; }
+    public void setCurBrand(String b) {
+        this.curBrand = b;
+    }
     public String getCurBrand() { return this.curBrand; }
     public void setFr(int fr) {
         this.fr = fr;
@@ -78,7 +80,7 @@ public class IRUtil {
         return this.fr;
     }
     public void frTest() {
-        fr = 37000;
+        fr = brandConst.getFr(curBrand);
     }
 
     public boolean willWork() {

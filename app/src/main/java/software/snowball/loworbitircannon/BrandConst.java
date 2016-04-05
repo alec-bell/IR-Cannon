@@ -132,6 +132,26 @@ public class BrandConst {
         Samsung.add(Samzoomm);
     }
 
+    public int getFr(String brand) {
+        int fr = 0;
+        switch (brand) {
+            case ("NEC"):
+                fr = 38000;
+                break;
+            case ("EPSON"):
+                fr = 38000;
+                break;
+            case ("SAMSUNG"):
+                fr = 38000;
+                break;
+            default:
+                fr = 38000;
+                break;
+        }
+
+        return fr;
+    }
+
     public int[] getCommand(String command, String brand) {
         //loop through to find command index
         int index = 0;
