@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     ButtonRectangle zoomm;
     ButtonRectangle rapid;
     ButtonRectangle spring;
+    ButtonRectangle delayedPower;
+    ButtonRectangle delayedRapid;
     TextView brand;
 
     @Override
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         zoomm = (ButtonRectangle) findViewById(R.id.btnZoomm);
         rapid = (ButtonRectangle) findViewById(R.id.btnRapid);
         spring = (ButtonRectangle) findViewById(R.id.btnSpring);
+        delayedPower = (ButtonRectangle) findViewById(R.id.btnDelayOff);
+        delayedRapid = (ButtonRectangle) findViewById(R.id.btnDelayRapid);
         brand = (TextView) findViewById(R.id.tvBrand);
 
         irUtil = new IRUtil(getApplicationContext());
@@ -146,6 +150,18 @@ public class MainActivity extends AppCompatActivity {
                 irUtil.springMode();
             }
         });
+        delayedPower.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDelayDialog("poweroff");
+            }
+        });
+        delayedRapid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDelayDialog("rapid");
+            }
+        });
     }
 
     @Override
@@ -184,6 +200,48 @@ public class MainActivity extends AppCompatActivity {
                     .putBoolean("isFirstRun", false)
                     .apply();
         }
+    }
+
+    protected void showDelayDialog(String function) {
+        LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
+        View promptView = layoutInflater.inflate(R.layout.delay_dialog, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+        alertDialogBuilder.setView(promptView);
+        final String f = function;
+
+        final EditText editText = (EditText) promptView.findViewById(R.id.edittext);
+        //setup a dialog window
+        alertDialogBuilder.setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        boolean isValid = true;
+                        int temp = Integer.parseInt(editText.getText().toString());
+                        if (temp < 200) {
+                            isValid = false;
+                            Toast.makeText(getApplicationContext(), "Error! Desired time is too short!", Toast.LENGTH_LONG);
+                        }
+                        if (temp > 30000) {
+                            isValid = false;
+                            Toast.makeText(getApplicationContext(), "Error! Desired time is too long!", Toast.LENGTH_LONG);
+                        }
+
+                        if (isValid) {
+                            //note: converts time from seconds to milliseconds (seconds are more input friendly
+                            irUtil.delayedFunction(temp * 1000, f);
+                        }
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //don't run method
+                        dialog.cancel();
+                    }
+                });
+        //creating the dialog
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
     protected void showInputDialog() {

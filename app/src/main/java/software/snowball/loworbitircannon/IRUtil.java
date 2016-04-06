@@ -19,7 +19,7 @@ public class IRUtil {
 
     //command names for brandConst
     final String[] funcs = {"power", "poweron", "poweroff", "input", "focusp", "focusm", "brightnessp", "brightnessm", "contrastp", "contrastm",
-            "setup", "zoomp", "zoomm"};
+            "setup", "zoomp", "zoomm", "rapid"};
 
     public IRUtil(Context c) {
         ir = (ConsumerIrManager)c.getSystemService(c.CONSUMER_IR_SERVICE);
@@ -195,6 +195,24 @@ public class IRUtil {
                 powerOff();
             }
         }).start();
+    }
+
+    public void delayedFunction(int time, String function) {
+        //time in milliseconds
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        switch (function) {
+            case ("poweroff"):
+                powerOff();
+                break;
+            case ("rapid"):
+                rapidMode();
+                break;
+        }
     }
 
     public void springMode() {

@@ -28,16 +28,9 @@
         tools:context="software.snowball.loworbitircannon.MainActivity"
         android:background="@color/darkBackground">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/imgPic1"
-            android:src="@drawable/loic1"/>
-
         <com.gc.materialdesign.views.ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imgPic1">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -192,6 +185,28 @@
                         android:id="@+id/btnSpring"
                         android:text="Spring"/>
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dip">
+
+                    <com.gc.materialdesign.views.ButtonRectangle
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorAccent"
+                        android:layout_weight="1"
+                        android:id="@+id/btnDelayOff"
+                        android:text="Delayed Power"/>
+
+                    <com.gc.materialdesign.views.ButtonRectangle
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorAccent"
+                        android:layout_weight="1"
+                        android:id="@+id/btnDelayRapid"
+                        android:text="Delayed Rapid"/>
                 </LinearLayout>
 
             </LinearLayout>
