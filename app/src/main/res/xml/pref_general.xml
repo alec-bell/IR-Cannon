@@ -1,4 +1,8 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+xmlns:android="http://schemas.android.com/apk/res/android">
+
+<PreferenceCategory
+    android:title="@string/pref_title_general">
 
     <SwitchPreference
         android:defaultValue="true"
@@ -29,5 +33,7 @@
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:title="@string/pref_title_add_friends_to_messages" />
+
+</PreferenceCategory>
 
 </PreferenceScreen>

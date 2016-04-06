@@ -3,6 +3,7 @@ package software.snowball.loworbitircannon;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.ConsumerIrManager;
+import android.preference.PreferenceFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,15 +12,12 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gc.materialdesign.views.ButtonRectangle;
-import com.gc.materialdesign.widgets.Dialog;
-
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -180,8 +178,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(about);
                 return true;
             case R.id.action_settings:
-                Intent settings = new Intent(getApplicationContext(), SettingsActivity.class);
-                startActivity(settings);
+                getFragmentManager().beginTransaction()
+                    .replace(android.R.id.content, new SettingsFragment())
+                    .addToBackStack("settings")
+                    .commit();
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -294,4 +295,26 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
+    public static class SettingsFragment extends PreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            // Load the preferences from an XML resource
+            addPreferencesFromResource(R.xml.pref_general);
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View view = super.onCreateView(inflater, container, savedInstanceState);
+            view.setBackgroundColor(getResources().getColor(android.R.color.white));
+            return view;
+        }
+    }
 }
