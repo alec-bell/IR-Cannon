@@ -31,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     private final String[] brands = {"NEC", "SAMSUNG", "EPSON"};
+    /*
     ButtonRectangle power;
     ButtonRectangle powerOn;
+    */
     ButtonRectangle powerOff;
     ButtonRectangle video;
     ButtonRectangle focusp; //focus in
@@ -56,8 +58,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //initializing objects
+        /*
         power = (ButtonRectangle) findViewById(R.id.btnPower);
         powerOn = (ButtonRectangle) findViewById(R.id.btnPowerOn);
+        */
         powerOff = (ButtonRectangle) findViewById(R.id.btnPowerOff);
         video = (ButtonRectangle) findViewById(R.id.btnInput);
         focusp = (ButtonRectangle) findViewById(R.id.btnFocusP);
@@ -73,9 +77,14 @@ public class MainActivity extends AppCompatActivity {
         brand = (TextView) findViewById(R.id.tvBrand);
 
         irUtil = new IRUtil(getApplicationContext());
-        checkFirstRun();
+        /**
+         * 4/6/16: disabling first run dialog for now, defaulting brand to NEC automatically
+         * checkFirstRun();
+         */
+        setBrand("NEC");
 
         //setting listeners to handle clicking
+        /*
         power.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 irUtil.powerOn();
             }
         });
+        */
         powerOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,6 +199,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void setBrand(String b) {
+        irUtil.setCurBrand(b.toUpperCase());
+        brand.setText(b + " Device Remote");
+    }
+
     public void checkFirstRun() {
         boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
         //isFirstRun = true; //for testing purposes only
@@ -267,17 +282,14 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                             if (isValid) {
-                                irUtil.setCurBrand(editText.getText().toString().toUpperCase());
-                                brand.setText("Current Brand: " + editText.getText().toString().toUpperCase());
+                                setBrand(editText.getText().toString().toUpperCase().trim());
                             } else {
-                                Toast.makeText(getApplicationContext(), "Brand not found! Defaulting to SAMSUNG", Toast.LENGTH_LONG).show();
-                                irUtil.setCurBrand("SAMSUNG");
-                                brand.setText("Current Brand: " + "SAMSUNG");
+                                Toast.makeText(getApplicationContext(), "Brand not found! Defaulting to NEC", Toast.LENGTH_LONG).show();
+                                setBrand("NEC");
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "Brand not found! Defaulting to NEC", Toast.LENGTH_LONG).show();
-                            irUtil.setCurBrand("NEC");
-                            brand.setText("Current Brand: " + "NEC");
+                            setBrand("NEC");
                         }
                     }
                 })
