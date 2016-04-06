@@ -4,7 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="darkBackground">#303030</color>
     <color name="lightBackground">#fff3f3f3</color>
-    <color name="colorAccent">#BDBDBD</color>
+    <color name="colorAccent">#388E3C</color>
+    <color name="buttonBackground">#3F51B5</color>
     <color name="textColorToolBar">#FFFFFF</color>
     <color name="colorAbout">#1a1a1a</color>
 </resources>

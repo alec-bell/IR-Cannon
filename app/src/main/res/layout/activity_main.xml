@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -32,18 +33,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:elevation="25dp"
             android:orientation="vertical"
             android:id="@+id/ll1">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/menu_margin"
                 android:paddingTop="5dp"
+                android:paddingLeft="5dp"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:id="@+id/tvBrand"
-                android:textSize="24dp"
                 android:text="NEC Device Remote"/>
         </LinearLayout>
 
@@ -66,7 +65,7 @@
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/menu_margin">
 
-                    <!---
+                    <!--
                     <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -74,20 +73,21 @@
                         android:id="@+id/btnPower"
                         android:text="Power"
                         android:layout_weight="1"/>
-
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorAccent"
-                        android:id="@+id/btnPowerOn"
-                        android:text="Power On"
-                        android:layout_weight="1"/>
                         -->
 
                     <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnPowerOn"
+                        android:text="Power On"
+                        android:layout_weight="1"/>
+
+
+                    <com.gc.materialdesign.views.ButtonRectangle
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/buttonBackground"
                         android:id="@+id/btnPowerOff"
                         android:text="Power Off"
                         android:layout_weight="1"/>
@@ -102,7 +102,7 @@
                     <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
                         android:id="@+id/btnInput"
                         android:text="Input (Video)"/>
 
@@ -117,7 +117,7 @@
                     <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
                         android:id="@+id/btnFocusP"
                         android:layout_weight="1"
                         android:text="Focus +"/>
@@ -126,7 +126,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/btnFocusM"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
                         android:layout_weight="1"
                         android:text="Focus -"/>
 
@@ -142,13 +142,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
                         android:id="@+id/btnBrightnessp"
                         android:text="Brightness +"/>
 
                     <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:id="@+id/btnBrightnessm"
@@ -164,7 +164,7 @@
                     <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
                         android:layout_weight="1"
                         android:id="@+id/btnZoomp"
                         android:text="Zoom +"/>
@@ -172,7 +172,7 @@
                     <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
                         android:layout_weight="1"
                         android:id="@+id/btnZoomm"
                         android:text="Zoom -"/>
@@ -188,7 +188,7 @@
                     <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
                         android:layout_weight="1"
                         android:id="@+id/btnRapid"
                         android:text="Rapid"/>
@@ -196,7 +196,7 @@
                     <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
                         android:layout_weight="1"
                         android:id="@+id/btnSpring"
                         android:text="Spring"/>
@@ -211,7 +211,7 @@
                     <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
                         android:layout_weight="1"
                         android:id="@+id/btnDelayOff"
                         android:text="Delayed Power"/>
@@ -219,7 +219,7 @@
                     <com.gc.materialdesign.views.ButtonRectangle
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorAccent"
+                        android:background="@color/buttonBackground"
                         android:layout_weight="1"
                         android:id="@+id/btnDelayRapid"
                         android:text="Delayed Rapid"/>

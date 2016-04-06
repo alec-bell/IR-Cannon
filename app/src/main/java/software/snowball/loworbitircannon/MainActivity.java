@@ -2,6 +2,7 @@ package software.snowball.loworbitircannon;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.hardware.ConsumerIrManager;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.AlertDialog;
@@ -33,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private final String[] brands = {"NEC", "SAMSUNG", "EPSON"};
     /*
     ButtonRectangle power;
-    ButtonRectangle powerOn;
     */
+    ButtonRectangle powerOn;
     ButtonRectangle powerOff;
     ButtonRectangle video;
     ButtonRectangle focusp; //focus in
@@ -60,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
         //initializing objects
         /*
         power = (ButtonRectangle) findViewById(R.id.btnPower);
-        powerOn = (ButtonRectangle) findViewById(R.id.btnPowerOn);
         */
+        powerOn = (ButtonRectangle) findViewById(R.id.btnPowerOn);
         powerOff = (ButtonRectangle) findViewById(R.id.btnPowerOff);
         video = (ButtonRectangle) findViewById(R.id.btnInput);
         focusp = (ButtonRectangle) findViewById(R.id.btnFocusP);
@@ -75,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         delayedPower = (ButtonRectangle) findViewById(R.id.btnDelayOff);
         delayedRapid = (ButtonRectangle) findViewById(R.id.btnDelayRapid);
         brand = (TextView) findViewById(R.id.tvBrand);
-
         irUtil = new IRUtil(getApplicationContext());
         /**
          * 4/6/16: disabling first run dialog for now, defaulting brand to NEC automatically
@@ -91,13 +91,14 @@ public class MainActivity extends AppCompatActivity {
                 irUtil.power();
             }
         });
+        */
         powerOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 irUtil.powerOn();
             }
         });
-        */
+
         powerOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
