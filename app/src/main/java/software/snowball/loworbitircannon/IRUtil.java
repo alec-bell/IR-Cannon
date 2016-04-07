@@ -43,6 +43,12 @@ public class IRUtil {
     public void frTest() {
         fr = brandConst.getFr(curBrand);
     }
+    public void setOverridePrompt(boolean b) {
+        overridePrompt = b;
+    }
+    public boolean getOverridePrompt() {
+        return overridePrompt;
+    }
 
     public boolean willWork() {
         //for now, makes sure device has IR transmitter (could potentially have more to it)
