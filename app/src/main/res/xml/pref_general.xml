@@ -9,9 +9,9 @@
 
         <SwitchPreference
             android:defaultValue="true"
-            android:key="example_switch"
-            android:summary="@string/pref_description_social_recommendations"
-            android:title="@string/pref_title_social_recommendations" />
+            android:key="enable_power_off_prompt_override"
+            android:summary="@string/pref_power_off_prompt_override_summary"
+            android:title="@string/pref_power_off_prompt_override" />
 
     </PreferenceCategory>
 

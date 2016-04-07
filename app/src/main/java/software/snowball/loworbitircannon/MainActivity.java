@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,25 +33,25 @@ public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     private final String[] brands = {"NEC", "SAMSUNG", "EPSON"};
-    /*
-    ButtonRectangle power;
-    */
-    ButtonRectangle powerOn;
-    ButtonRectangle powerOff;
-    ButtonRectangle video;
-    ButtonRectangle picmute; //mutes picture
-    ButtonRectangle keylock;
-    ButtonRectangle setup; //random menu that serves unknown purpose (for testing purposes)
-    ButtonRectangle focusp; //focus in
-    ButtonRectangle focusm; //focus out
-    ButtonRectangle brightnessp; //raise brightness
-    ButtonRectangle brightnessm; //lower brightness
-    ButtonRectangle zoomp;
-    ButtonRectangle zoomm;
-    ButtonRectangle rapid;
-    ButtonRectangle spring;
-    ButtonRectangle delayedPower;
-    ButtonRectangle delayedRapid;
+    private boolean isOn;
+
+    Button power;
+    //Button powerOn;
+    //Button powerOff;
+    Button video;
+    Button picmute; //mutes picture
+    Button keylock;
+    Button setup; //random menu that serves unknown purpose (for testing purposes)
+    Button focusp; //focus in
+    Button focusm; //focus out
+    Button brightnessp; //raise brightness
+    Button brightnessm; //lower brightness
+    Button zoomp;
+    Button zoomm;
+    Button rapid;
+    Button spring;
+    //Button delayedPower;
+    //Button delayedRapid;
     TextView brand;
 
     @Override
@@ -61,26 +62,28 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
+        isOn = false;
+
         //initializing objects
-        /*
-        power = (ButtonRectangle) findViewById(R.id.btnPower);
-        */
-        powerOn = (ButtonRectangle) findViewById(R.id.btnPowerOn);
-        powerOff = (ButtonRectangle) findViewById(R.id.btnPowerOff);
-        video = (ButtonRectangle) findViewById(R.id.btnInput);
-        picmute = (ButtonRectangle) findViewById(R.id.btnPicMute);
-        keylock = (ButtonRectangle) findViewById(R.id.btnKeyLock);
-        setup = (ButtonRectangle) findViewById(R.id.btnSetup);
-        focusp = (ButtonRectangle) findViewById(R.id.btnFocusP);
-        focusm = (ButtonRectangle) findViewById(R.id.btnFocusM);
-        brightnessp = (ButtonRectangle) findViewById(R.id.btnBrightnessp);
-        brightnessm = (ButtonRectangle) findViewById(R.id.btnBrightnessm);
-        zoomp = (ButtonRectangle) findViewById(R.id.btnZoomp);
-        zoomm = (ButtonRectangle) findViewById(R.id.btnZoomm);
-        rapid = (ButtonRectangle) findViewById(R.id.btnRapid);
-        spring = (ButtonRectangle) findViewById(R.id.btnSpring);
-        delayedPower = (ButtonRectangle) findViewById(R.id.btnDelayOff);
-        delayedRapid = (ButtonRectangle) findViewById(R.id.btnDelayRapid);
+
+        power = (Button) findViewById(R.id.btnPower);
+
+        //powerOn = (Button) findViewById(R.id.btnPowerOn);
+        //powerOff = (Button) findViewById(R.id.btnPowerOff);
+        video = (Button) findViewById(R.id.btnInput);
+        picmute = (Button) findViewById(R.id.btnPicMute);
+        //keylock = (Button) findViewById(R.id.btnKeyLock);
+        //setup = (Button) findViewById(R.id.btnSetup);
+        focusp = (Button) findViewById(R.id.btnFocusP);
+        focusm = (Button) findViewById(R.id.btnFocusM);
+        brightnessp = (Button) findViewById(R.id.btnBrightnessp);
+        brightnessm = (Button) findViewById(R.id.btnBrightnessm);
+        zoomp = (Button) findViewById(R.id.btnZoomp);
+        zoomm = (Button) findViewById(R.id.btnZoomm);
+        rapid = (Button) findViewById(R.id.btnRapid);
+        spring = (Button) findViewById(R.id.btnSpring);
+        //delayedPower = (Button) findViewById(R.id.btnDelayOff);
+        //delayedRapid = (Button) findViewById(R.id.btnDelayRapid);
         brand = (TextView) findViewById(R.id.tvBrand);
         irUtil = new IRUtil(getApplicationContext());
         /**
@@ -90,27 +93,37 @@ public class MainActivity extends AppCompatActivity {
         setBrand("NEC");
 
         //setting listeners to handle clicking
-        /*
+
         power.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                irUtil.power();
+                if(isOn) {
+                    irUtil.powerOff();
+                    power.setBackgroundColor(Color.rgb(20, 90, 50));
+                    isOn = false;
+                } else {
+                    irUtil.powerOn();
+                    power.setBackgroundColor(Color.rgb(146, 43, 33));
+                    isOn = true;
+                }
             }
         });
-        */
+        /*
         powerOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 irUtil.powerOn();
             }
         });
-
+        */
+        /*
         powerOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 irUtil.powerOff();
             }
         });
+        */
         video.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,18 +136,18 @@ public class MainActivity extends AppCompatActivity {
                 irUtil.pictureMute();
             }
         });
-        keylock.setOnClickListener(new View.OnClickListener() {
+        /*keylock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 irUtil.keyLock();
             }
-        });
-        setup.setOnClickListener(new View.OnClickListener() {
+        });*/
+        /*setup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 irUtil.setup();
             }
-        });
+        });*/
         focusp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -183,18 +196,22 @@ public class MainActivity extends AppCompatActivity {
                 irUtil.springMode();
             }
         });
+        /*
         delayedPower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDelayDialog("poweroff");
             }
         });
+        */
+        /*
         delayedRapid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDelayDialog("rapid");
             }
         });
+        */
     }
 
     @Override

@@ -61,200 +61,254 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="100dp"
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/menu_margin">
 
-                    <!--
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorAccent"
-                        android:id="@+id/btnPower"
-                        android:text="Power"
-                        android:layout_weight="1"/>
-                        -->
-
-                    <com.gc.materialdesign.views.ButtonRectangle
+                    <Button
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/buttonBackground"
-                        android:id="@+id/btnPowerOn"
-                        android:text="Power On"
-                        android:layout_weight="1"/>
-
-
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/buttonBackground"
-                        android:id="@+id/btnPowerOff"
-                        android:text="Power Off"
-                        android:layout_weight="1"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/menu_margin">
-
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/buttonBackground"
-                        android:layout_weight="1"
                         android:id="@+id/btnPicMute"
-                        android:text="Picture Mute"/>
-
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/buttonBackground"
+                        android:text="Picture Mute"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_do_not_disturb_white_48px"
+                        android:textColor="@color/textColor"
                         android:layout_weight="1"
-                        android:id="@+id/btnKeyLock"
-                        android:text="Key Lock"/>
+                        android:layout_margin="5dp"/>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/menu_margin">
-
-                    <com.gc.materialdesign.views.ButtonRectangle
+                    <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="#145A32"
+                        android:id="@+id/btnPower"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_power_settings_new_white_48px"
+                        android:text="POWER"
+                        android:textColor="@color/textColor"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:background="@color/buttonBackground"
                         android:id="@+id/btnInput"
+                        android:text="Input"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_personal_video_white_48px"
+                        android:textColor="@color/textColor"
                         android:layout_weight="1"
-                        android:text="Input (Video)"/>
-
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/buttonBackground"
-                        android:id="@+id/btnSetup"
-                        android:layout_weight="1"
-                        android:text="Setup"/>
+                        android:layout_margin="5dp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/menu_margin">
 
-                    <com.gc.materialdesign.views.ButtonRectangle
+                    <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnVolumeUp"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_volume_up_white_48px"
+                        android:text="VOLUME +"
+                        android:textColor="@color/textColor"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnPageUp"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_keyboard_arrow_up_white_48px"
+                        android:text="UP"
+                        android:textColor="@color/textColor"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnZoomp"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_zoom_in_white_48px"
+                        android:text="ZOOM +"
+                        android:textColor="@color/textColor"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/menu_margin">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnPageLeft"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_keyboard_arrow_left_white_48px"
+                        android:text="LEFT"
+                        android:textColor="@color/textColor"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnOK"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_center_focus_strong_white_48px"
+                        android:text="OK"
+                        android:textColor="@color/textColor"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnPageRight"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_keyboard_arrow_right_white_48px"
+                        android:text="RIGHT"
+                        android:textColor="@color/textColor"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/menu_margin">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnVolumeDown"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_volume_down_white_48px"
+                        android:text="VOLUME -"
+                        android:textColor="@color/textColor"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnPageDown"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_keyboard_arrow_down_white_48px"
+                        android:text="DOWN"
+                        android:textColor="@color/textColor"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnZoomm"
+                        android:paddingTop="10dp"
+                        android:drawableTop="@drawable/ic_zoom_out_white_48px"
+                        android:text="ZOOM -"
+                        android:textColor="@color/textColor"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/menu_margin">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:background="@color/buttonBackground"
                         android:id="@+id/btnFocusP"
                         android:layout_weight="1"
-                        android:text="Focus +"/>
+                        android:text="Focus +"
+                        android:textColor="@color/textColor"
+                        android:layout_margin="5dp"/>
 
-                    <com.gc.materialdesign.views.ButtonRectangle
+                    <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/btnFocusM"
-                        android:background="@color/buttonBackground"
-                        android:layout_weight="1"
-                        android:text="Focus -"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:orientation="horizontal">
-
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@color/buttonBackground"
-                        android:id="@+id/btnBrightnessp"
-                        android:text="Brightness +"/>
-
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:layout_width="match_parent"
-                        android:background="@color/buttonBackground"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:id="@+id/btnBrightnessm"
-                        android:text="Brightness -"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/menu_margin">
-
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/buttonBackground"
-                        android:layout_weight="1"
-                        android:id="@+id/btnZoomp"
-                        android:text="Zoom +"/>
-
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/buttonBackground"
-                        android:layout_weight="1"
-                        android:id="@+id/btnZoomm"
-                        android:text="Zoom -"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="@dimen/menu_margin">
-
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:background="@color/buttonBackground"
                         android:layout_weight="1"
                         android:id="@+id/btnRapid"
-                        android:text="Rapid"/>
+                        android:text="Stress Test"
+                        android:textColor="@color/textColor"
+                        android:layout_margin="5dp"/>
 
-                    <com.gc.materialdesign.views.ButtonRectangle
+                    <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/buttonBackground"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:id="@+id/btnSpring"
-                        android:text="Spring"/>
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnBrightnessp"
+                        android:text="Brightness +"
+                        android:textColor="@color/textColor"
+                        android:layout_margin="5dp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/menu_margin">
+                    android:layout_height="75dp"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:orientation="horizontal">
 
-                    <com.gc.materialdesign.views.ButtonRectangle
+                    <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/btnFocusM"
                         android:background="@color/buttonBackground"
                         android:layout_weight="1"
-                        android:id="@+id/btnDelayOff"
-                        android:text="Delayed Power"/>
+                        android:text="Focus -"
+                        android:textColor="@color/textColor"
+                        android:layout_margin="5dp"/>
 
-                    <com.gc.materialdesign.views.ButtonRectangle
+                    <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:background="@color/buttonBackground"
                         android:layout_weight="1"
-                        android:id="@+id/btnDelayRapid"
-                        android:text="Delayed Rapid"/>
+                        android:id="@+id/btnSpring"
+                        android:text="Image Stabilize"
+                        android:textColor="@color/textColor"
+                        android:layout_margin="5dp"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:background="@color/buttonBackground"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/btnBrightnessm"
+                        android:text="Brightness -"
+                        android:textColor="@color/textColor"
+                        android:layout_margin="5dp"/>
+
                 </LinearLayout>
 
             </LinearLayout>
