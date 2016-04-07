@@ -16,7 +16,7 @@ public class BrandConst {
 
     //IR codes for NEC
     final String[] funcs = {"power", "poweron", "poweroff", "input", "focusp", "focusm", "brightnessp", "brightnessm", "contrastp", "contrastm",
-            "setup", "zoomp", "zoomm"};
+            "setup", "zoomp", "zoomm", "picmute", "keylock"};
     final int[] NECp = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564,
             564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564,
             564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 40884};
@@ -54,6 +54,12 @@ public class BrandConst {
     final int[] NECzoomm = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564,
             564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 564, 564, 564, 564,
             564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 40884}; //zoom away
+    final int[] NECpicmute = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564,
+            564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564,
+            564, 1692, 564, 564, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 40884}; //mutes picture
+    final int[] NECkeylock = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564,
+            564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692,
+            564, 564, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 40884}; //unknown purpose (for testing)
 
     //Epson commands
     final int[] Epp = {};
@@ -69,6 +75,8 @@ public class BrandConst {
     final int[] Epsetup = {};
     final int[] Epzoomp = {};
     final int[] Epzoomm = {};
+    final int[] Eppicmute = {};
+    final int[] Epkeylock = {};
 
     //Samsung commands
     final int[] Samp = {0, 108, 0, 34, 173, 173, 22, 65, 22, 65, 22, 65, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 65, 22, 65, 22, 65, 22, 22,
@@ -110,6 +118,8 @@ public class BrandConst {
     final int[] Samzoomm = {0, 108, 0, 34, 173, 173, 22, 65, 22, 65, 22, 65, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 65, 22, 65, 22, 65, 22, 22,
             22, 22, 22, 22, 22, 22, 22, 22, 22, 65, 22, 65, 22, 65, 22, 65, 22, 65, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22,
             22, 65, 22, 65, 22, 65, 22, 1787};
+    final int[] Sampicmute = {};
+    final int[] Samkeylock = {};
 
     //I understand that this is super immature code
     public BrandConst() {
@@ -130,6 +140,8 @@ public class BrandConst {
         NEC.add(NECsetup);
         NEC.add(NECzoomp);
         NEC.add(NECzoomm);
+        NEC.add(NECpicmute);
+        NEC.add(NECkeylock);
         Epson.add(Epp);
         Epson.add(EppOn);
         Epson.add(EppOff);
@@ -143,6 +155,8 @@ public class BrandConst {
         Epson.add(Epsetup);
         Epson.add(Epzoomp);
         Epson.add(Epzoomm);
+        Epson.add(Eppicmute);
+        Epson.add(Epkeylock);
         Samsung.add(Samp);
         Samsung.add(SamOn);
         Samsung.add(SamOff);
@@ -156,6 +170,8 @@ public class BrandConst {
         Samsung.add(Samsetup);
         Samsung.add(Samzoomp);
         Samsung.add(Samzoomm);
+        Samsung.add(Sampicmute);
+        Samsung.add(Samkeylock);
     }
 
     public int getFr(String brand) {

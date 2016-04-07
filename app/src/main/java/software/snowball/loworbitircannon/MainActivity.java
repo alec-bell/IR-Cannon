@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     ButtonRectangle powerOn;
     ButtonRectangle powerOff;
     ButtonRectangle video;
+    ButtonRectangle picmute; //mutes picture
+    ButtonRectangle keylock;
+    ButtonRectangle setup; //random menu that serves unknown purpose (for testing purposes)
     ButtonRectangle focusp; //focus in
     ButtonRectangle focusm; //focus out
     ButtonRectangle brightnessp; //raise brightness
@@ -65,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
         powerOn = (ButtonRectangle) findViewById(R.id.btnPowerOn);
         powerOff = (ButtonRectangle) findViewById(R.id.btnPowerOff);
         video = (ButtonRectangle) findViewById(R.id.btnInput);
+        picmute = (ButtonRectangle) findViewById(R.id.btnPicMute);
+        keylock = (ButtonRectangle) findViewById(R.id.btnKeyLock);
+        setup = (ButtonRectangle) findViewById(R.id.btnSetup);
         focusp = (ButtonRectangle) findViewById(R.id.btnFocusP);
         focusm = (ButtonRectangle) findViewById(R.id.btnFocusM);
         brightnessp = (ButtonRectangle) findViewById(R.id.btnBrightnessp);
@@ -109,6 +115,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 irUtil.input();
+            }
+        });
+        picmute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irUtil.pictureMute();
+            }
+        });
+        keylock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irUtil.keyLock();
+            }
+        });
+        setup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irUtil.setup();
             }
         });
         focusp.setOnClickListener(new View.OnClickListener() {
@@ -231,11 +255,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         boolean isValid = true;
                         int temp = Integer.parseInt(editText.getText().toString());
-                        if (temp < 200) {
+                        if (temp < 2) {
                             isValid = false;
                             Toast.makeText(getApplicationContext(), "Error! Desired time is too short!", Toast.LENGTH_LONG);
                         }
-                        if (temp > 30000) {
+                        if (temp > 120) {
                             isValid = false;
                             Toast.makeText(getApplicationContext(), "Error! Desired time is too long!", Toast.LENGTH_LONG);
                         }

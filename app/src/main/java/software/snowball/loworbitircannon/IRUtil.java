@@ -19,7 +19,7 @@ public class IRUtil {
 
     //command names for brandConst
     final String[] funcs = {"power", "poweron", "poweroff", "input", "focusp", "focusm", "brightnessp", "brightnessm", "contrastp", "contrastm",
-            "setup", "zoomp", "zoomm", "rapid"};
+            "setup", "zoomp", "zoomm", "picmute", "keylock"};
 
     public IRUtil(Context c) {
         ir = (ConsumerIrManager)c.getSystemService(c.CONSUMER_IR_SERVICE);
@@ -63,7 +63,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, brandConst.getCommand(funcs[0], curBrand));;
+        ir.transmit(fr, brandConst.getCommand("power", curBrand));;
     }
 
     public void powerOn() {
@@ -71,7 +71,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, brandConst.getCommand(funcs[1], curBrand));
+        ir.transmit(fr, brandConst.getCommand("poweron", curBrand));
     }
 
     public void powerOff() {
@@ -79,16 +79,16 @@ public class IRUtil {
             return;
         }
 
-        if (overridePrompt) { //if override prompt is enabled, send command twice, to bypass the "Are you sure?" dialog and automatically turn projector off
-            ir.transmit(fr, brandConst.getCommand(funcs[2], curBrand));
+        if (!overridePrompt) { //if override prompt is enabled, send command twice, to bypass the "Are you sure?" dialog and automatically turn projector off
+            ir.transmit(fr, brandConst.getCommand("poweroff", curBrand));
             try {
-                Thread.sleep(200);
+                Thread.sleep(125);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            ir.transmit(fr, brandConst.getCommand(funcs[2], curBrand));
+            ir.transmit(fr, brandConst.getCommand("poweroff", curBrand));
         } else {
-            ir.transmit(fr, brandConst.getCommand(funcs[2], curBrand));
+            ir.transmit(fr, brandConst.getCommand("poweroff", curBrand));
         }
     }
 
@@ -97,7 +97,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, brandConst.getCommand(funcs[3], curBrand));
+        ir.transmit(fr, brandConst.getCommand("input", curBrand));
     }
 
     public void focusP() {
@@ -105,7 +105,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, brandConst.getCommand(funcs[4], curBrand));
+        ir.transmit(fr, brandConst.getCommand("focusp", curBrand));
     }
 
     public void focusM() {
@@ -113,7 +113,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, brandConst.getCommand(funcs[5], curBrand));
+        ir.transmit(fr, brandConst.getCommand("focusm", curBrand));
     }
 
     public void brightnessP() {
@@ -121,7 +121,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, brandConst.getCommand(funcs[6], curBrand));;
+        ir.transmit(fr, brandConst.getCommand("brightnessp", curBrand));;
     }
 
     public void brightnessM() {
@@ -129,7 +129,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, brandConst.getCommand(funcs[7], curBrand));;
+        ir.transmit(fr, brandConst.getCommand("brightnessm", curBrand));;
     }
 
     public void zoomP() {
@@ -137,7 +137,7 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, brandConst.getCommand(funcs[8], curBrand));;
+        ir.transmit(fr, brandConst.getCommand("zoomp", curBrand));;
     }
 
     public void zoomM() {
@@ -145,7 +145,31 @@ public class IRUtil {
             return;
         }
 
-        ir.transmit(fr, brandConst.getCommand(funcs[9], curBrand));;
+        ir.transmit(fr, brandConst.getCommand("zoomm", curBrand));;
+    }
+
+    public void pictureMute() {
+        if (!willWork()) {
+            return;
+        }
+
+        ir.transmit(fr, brandConst.getCommand("picmute", curBrand));
+    }
+
+    public void setup() {
+        if (!willWork()) {
+            return;
+        }
+
+        ir.transmit(fr, brandConst.getCommand("setup", curBrand));
+    }
+
+    public void keyLock() {
+        if (!willWork()) {
+            return;
+        }
+
+        ir.transmit(fr, brandConst.getCommand("keylock", curBrand));
     }
 
     public void rapidMode() {

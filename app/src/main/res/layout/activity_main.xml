@@ -103,8 +103,40 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/buttonBackground"
+                        android:layout_weight="1"
+                        android:id="@+id/btnPicMute"
+                        android:text="Picture Mute"/>
+
+                    <com.gc.materialdesign.views.ButtonRectangle
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/buttonBackground"
+                        android:layout_weight="1"
+                        android:id="@+id/btnKeyLock"
+                        android:text="Key Lock"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_margin">
+
+                    <com.gc.materialdesign.views.ButtonRectangle
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/buttonBackground"
                         android:id="@+id/btnInput"
+                        android:layout_weight="1"
                         android:text="Input (Video)"/>
+
+                    <com.gc.materialdesign.views.ButtonRectangle
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/buttonBackground"
+                        android:id="@+id/btnSetup"
+                        android:layout_weight="1"
+                        android:text="Setup"/>
 
                 </LinearLayout>
 
