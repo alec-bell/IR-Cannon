@@ -189,11 +189,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(about);
                 return true;
             case R.id.action_settings:
-                getFragmentManager().beginTransaction()
-                    .replace(android.R.id.content, new SettingsFragment())
-                    .addToBackStack("settings")
-                    .commit();
-
+                Intent settings = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(settings);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

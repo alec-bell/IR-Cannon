@@ -13,9 +13,8 @@
     <!-- Example General settings -->
     <string name="pref_header_general">Command Preferences</string>
 
-    <string name="pref_title_social_recommendations">Power Off Prompt Override</string>
-    <string name="pref_description_social_recommendations">If enabled, will automatically turn projector
-        off if button is pressed once
+    <string name="pref_title_social_recommendations">Enable Power Off Prompt Override</string>
+    <string name="pref_description_social_recommendations">Turn device off automatically, ignoring power-off prompts.
     </string>
 
     <string name="pref_title_display_name">Repeater Mode Frequency(ms)</string>
@@ -81,4 +80,9 @@
     </string-array>
 
     <string name="pref_general_theme">Theme</string>
+
+    <string name="pref_title_delay">Delay</string>
+    <string name="pref_delay_toggle">Toggle Delay</string>
+    <string name="pref_delay_toggle_summary">Execute commands after a specified amount of time.</string>
+    <string name="pref_delay_time">Delay Time</string>
 </resources>
