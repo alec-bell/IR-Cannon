@@ -16,7 +16,7 @@ public class BrandConst {
 
     //IR codes for NEC
     final String[] funcs = {"power", "poweron", "poweroff", "input", "focusp", "focusm", "brightnessp", "brightnessm", "contrastp", "contrastm",
-            "setup", "zoomp", "zoomm", "picmute", "keylock"};
+            "setup", "zoomp", "zoomm", "picmute", "keylock", "select", "up", "down", "left", "right", "volup", "voldown"};
     final int[] NECp = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564,
             564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564,
             564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 40884};
@@ -60,6 +60,27 @@ public class BrandConst {
     final int[] NECkeylock = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564,
             564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692,
             564, 564, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 40884}; //unknown purpose (for testing)
+    final int[] NECselect = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564,
+            564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 564, 564, 564, 564,
+            1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 40884};
+    final int[] NECup = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 564,
+            564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 564,
+            564, 1692, 564, 564, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 40884};
+    final int[] NECdown = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 564,
+            564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 564,
+            564, 564, 564, 564, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 40884};
+    final int[] NECleft = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 564,
+            564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 564, 564, 1692, 564,
+            564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 40884};
+    final int[] NECright = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 564,
+            564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 564, 564, 1692, 564,
+            1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 40884};
+    final int[] NECvolup = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564,
+            564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 564, 564, 1692, 564,
+            1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 40884};
+    final int[] NECvoldown = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564,
+            564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 1692, 564, 564, 564, 564, 564, 1692, 564,
+            1692, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 40884};
 
     //Epson commands
     final int[] Epp = {};
@@ -77,6 +98,13 @@ public class BrandConst {
     final int[] Epzoomm = {};
     final int[] Eppicmute = {};
     final int[] Epkeylock = {};
+    final int[] Epselect = {};
+    final int[] Epup = {};
+    final int[] Epdown = {};
+    final int[] Epleft = {};
+    final int[] Epright = {};
+    final int[] Epvolup = {};
+    final int[] Epvoldown = {};
 
     //Samsung commands
     final int[] Samp = {0, 108, 0, 34, 173, 173, 22, 65, 22, 65, 22, 65, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 65, 22, 65, 22, 65, 22, 22,
@@ -120,6 +148,13 @@ public class BrandConst {
             22, 65, 22, 65, 22, 65, 22, 1787};
     final int[] Sampicmute = {};
     final int[] Samkeylock = {};
+    final int[] Samselect = {};
+    final int[] Samup = {};
+    final int[] Samdown = {};
+    final int[] Samleft = {};
+    final int[] Samright = {};
+    final int[] Samvolup = {};
+    final int[] Samvoldown = {};
 
     //I understand that this is super immature code
     public BrandConst() {
@@ -142,6 +177,13 @@ public class BrandConst {
         NEC.add(NECzoomm);
         NEC.add(NECpicmute);
         NEC.add(NECkeylock);
+        NEC.add(NECselect);
+        NEC.add(NECup);
+        NEC.add(NECdown);
+        NEC.add(NECleft);
+        NEC.add(NECright);
+        NEC.add(NECvolup);
+        NEC.add(NECvoldown);
         Epson.add(Epp);
         Epson.add(EppOn);
         Epson.add(EppOff);
@@ -157,6 +199,13 @@ public class BrandConst {
         Epson.add(Epzoomm);
         Epson.add(Eppicmute);
         Epson.add(Epkeylock);
+        Epson.add(Epselect);
+        Epson.add(Epup);
+        Epson.add(Epdown);
+        Epson.add(Epleft);
+        Epson.add(Epright);
+        Epson.add(Epvolup);
+        Epson.add(Epvoldown);
         Samsung.add(Samp);
         Samsung.add(SamOn);
         Samsung.add(SamOff);
@@ -172,6 +221,13 @@ public class BrandConst {
         Samsung.add(Samzoomm);
         Samsung.add(Sampicmute);
         Samsung.add(Samkeylock);
+        Samsung.add(Samselect);
+        Samsung.add(Samup);
+        Samsung.add(Samdown);
+        Samsung.add(Samleft);
+        Samsung.add(Samright);
+        Samsung.add(Samvolup);
+        Samsung.add(Samvoldown);
     }
 
     public int getFr(String brand) {

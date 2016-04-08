@@ -19,7 +19,7 @@ public class IRUtil {
 
     //command names for brandConst
     final String[] funcs = {"power", "poweron", "poweroff", "input", "focusp", "focusm", "brightnessp", "brightnessm", "contrastp", "contrastm",
-            "setup", "zoomp", "zoomm", "picmute", "keylock"};
+            "setup", "zoomp", "zoomm", "picmute", "keylock", "select", "up", "down", "left", "right", "volup", "voldown"};
 
     public IRUtil(Context c) {
         ir = (ConsumerIrManager)c.getSystemService(c.CONSUMER_IR_SERVICE);
@@ -32,6 +32,7 @@ public class IRUtil {
     //misc methods
     public void setCurBrand(String b) {
         this.curBrand = b;
+        frTest();
     }
     public String getCurBrand() { return this.curBrand; }
     public void setFr(int fr) {
@@ -170,6 +171,62 @@ public class IRUtil {
         }
 
         ir.transmit(fr, brandConst.getCommand("keylock", curBrand));
+    }
+
+    public void select() {
+        if (!willWork()) {
+            return;
+        }
+
+        ir.transmit(fr, brandConst.getCommand("select", curBrand));
+    }
+
+    public void up() {
+        if (!willWork()) {
+            return;
+        }
+
+        ir.transmit(fr, brandConst.getCommand("up", curBrand));
+    }
+
+    public void down() {
+        if (!willWork()) {
+            return;
+        }
+
+        ir.transmit(fr, brandConst.getCommand("down", curBrand));
+    }
+
+    public void left() {
+        if (!willWork()) {
+            return;
+        }
+
+        ir.transmit(fr, brandConst.getCommand("left", curBrand));
+    }
+
+    public void right() {
+        if (!willWork()) {
+            return;
+        }
+
+        ir.transmit(fr, brandConst.getCommand("right", curBrand));
+    }
+
+    public void volUp() {
+        if (!willWork()) {
+            return;
+        }
+
+        ir.transmit(fr, brandConst.getCommand("volup", curBrand));
+    }
+
+    public void volDown() {
+        if (!willWork()) {
+            return;
+        }
+
+        ir.transmit(fr, brandConst.getCommand("voldown", curBrand));
     }
 
     public void rapidMode() {
