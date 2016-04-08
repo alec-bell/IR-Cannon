@@ -298,7 +298,7 @@ public class IRUtil {
         if(delay) {
             runDelay();
         }
-        boolean tempDelay = delay;
+        final boolean tempDelay = delay;
         delay = false;
 
         //creates thread to handle rapid mode
@@ -347,10 +347,9 @@ public class IRUtil {
                     e.printStackTrace();
                 }
                 powerOff();
+                delay = tempDelay;
             }
         }).start();
-
-        delay = tempDelay;
     }
 
     public void runDelay() {
@@ -369,7 +368,7 @@ public class IRUtil {
         if(delay) {
             runDelay();
         }
-        boolean tempDelay = delay;
+        final boolean tempDelay = delay;
         delay = false;
 
         //spring mode thread
@@ -411,9 +410,8 @@ public class IRUtil {
                         e.printStackTrace();
                     }
                 }
+                delay = tempDelay;
             }
         }).start();
-
-        delay = tempDelay;
     }
 }
