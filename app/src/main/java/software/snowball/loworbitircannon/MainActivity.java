@@ -416,19 +416,26 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-
+        //set if there is a delay or not
         boolean defaultEnableDelay = getResources().getBoolean(R.bool.toggle_delay_switch);
         boolean enableDelay = preferences.getBoolean("toggle_delay_switch", defaultEnableDelay);
         irUtil.setDelay(enableDelay);
 
+        //set time of delay based on preferences
         String defaultDelayTime = getResources().getString(R.string.delay_time);
         String delayTime = preferences.getString("delay_time", defaultDelayTime);
         irUtil.setDelayTime(Integer.valueOf(delayTime));
 
+        //set brand of device
         String defaultBrandName = getResources().getString(R.string.pref_general_brand);
         String brandName = preferences.getString("brand", defaultBrandName);
         irUtil.setCurBrand(brandName);
         this.brand.setText(brandName + " Device Remote");
+
+        //set type of device
+        String defaultDeviceType = getResources().getString(R.string.pref_general_device);
+        String deviceType = preferences.getString("device", defaultDeviceType);
+        //variable exists but is unused
 
     }
 

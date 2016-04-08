@@ -29,7 +29,7 @@
         android:title="@string/pref_title_general">
 
         <ListPreference
-            android:defaultValue="1"
+            android:defaultValue="SAMSUNG"
             android:entries="@array/pref_general_brands"
             android:entryValues="@array/brands_values"
             android:key="brand"
@@ -37,7 +37,16 @@
             android:summary="@string/pref_general_brand_summary"/>
 
         <ListPreference
-            android:defaultValue="SAMSUNG"
+            android:defaultValue="1"
+            android:entries="@array/pref_general_devices"
+            android:entryValues="@array/devices_values"
+            android:key="device"
+            android:title="@string/pref_general_device"
+            android:summary="@string/pref_general_device_summary"
+        />
+
+        <ListPreference
+            android:defaultValue="1"
             android:entries="@array/pref_general_themes"
             android:entryValues="@array/pref_general_themes_values"
             android:key="theme_list"

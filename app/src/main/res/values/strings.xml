@@ -101,4 +101,17 @@
         <item>NEC</item>
         <item>EPSON</item>
     </string-array>
+
+    <string name="pref_general_device">Device Type</string>
+    <string name="pref_general_device_summary">Choose the type of your device.</string>
+
+    <string-array name="pref_general_devices">
+        <item>Television</item>
+        <item>Projector</item>
+    </string-array>
+
+    <string-array name="devices_values">
+        <item>TV</item>
+        <item>PROJECTOR</item>
+    </string-array>
 </resources>
