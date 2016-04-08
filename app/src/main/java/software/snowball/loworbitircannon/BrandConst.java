@@ -266,13 +266,13 @@ public class BrandConst {
                 ans = NEC.get(index);
                 break;
             case "EPSON":
-                ans = Epson.get(index);
+                ans = NEC.get(index);
                 break;
             case "SAMSUNG":
-                ans = Samsung.get(index);
+                ans = NEC.get(index);
                 break;
             default:
-                ans = new int[0];
+                ans = NEC.get(index);
                 break;
         }
 

@@ -94,12 +94,56 @@
         <item>Samsung</item>
         <item>NEC</item>
         <item>Epson</item>
+        <item>Vizio</item>
+        <item>LG</item>
+        <item>HP</item>
+        <item>Dynex</item>
+        <item>Insignia</item>
+        <item>Casio</item>
+        <item>Hitachi</item>
+        <item>Sony</item>
+        <item>Vivitek</item>
+        <item>Panasonic</item>
+        <item>Toshiba</item>
+        <item>Apple</item>
+        <item>Sharp</item>
+        <item>Philips</item>
+        <item>JVC</item>
+        <item>Onkyo</item>
+        <item>Mitsubishi</item>
+        <item>RCA</item>
+        <item>Acer</item>
+        <item>Advent</item>
+        <item>Dell</item>
+        <item>Bose</item>
     </string-array>
 
     <string-array name="brands_values">
         <item>SAMSUNG</item>
         <item>NEC</item>
         <item>EPSON</item>
+        <item>VIZIO</item>
+        <item>LG</item>
+        <item>HP</item>
+        <item>DYNEX</item>
+        <item>INSIGNIA</item>
+        <item>CASIO</item>
+        <item>HITACHI</item>
+        <item>SONY</item>
+        <item>VIVITEK</item>
+        <item>PANASONIC</item>
+        <item>TOSHIBA</item>
+        <item>APPLE</item>
+        <item>SHARP</item>
+        <item>PHILIPS</item>
+        <item>JVC</item>
+        <item>ONKYO</item>
+        <item>MITSUBISHI</item>
+        <item>RCA</item>
+        <item>ACER</item>
+        <item>ADVENT</item>
+        <item>DELL</item>
+        <item>BOSE</item>
     </string-array>
 
     <string name="pref_general_device">Device Type</string>
@@ -108,10 +152,20 @@
     <string-array name="pref_general_devices">
         <item>Television</item>
         <item>Projector</item>
+        <item>Microwave</item>
+        <item>Radio</item>
+        <item>Audio Receiver</item>
+        <item>Home Theater</item>
+        <item>Other Device</item>
     </string-array>
 
     <string-array name="devices_values">
         <item>TV</item>
         <item>PROJECTOR</item>
+        <item>MICROWAVE</item>
+        <item>RADIO</item>
+        <item>AUDIORECEIVER</item>
+        <item>HOMETHEATER</item>
+        <item>OTHER</item>
     </string-array>
 </resources>
