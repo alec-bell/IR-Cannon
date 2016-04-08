@@ -14,6 +14,8 @@ public class IRUtil {
     private ConsumerIrManager ir;
     private BrandConst brandConst;
     private String curBrand;
+    private int delayTime;
+    private boolean delay;
     private int fr;
     private boolean overridePrompt; //for poweroff command (changed in settings eventually)
 
@@ -24,8 +26,10 @@ public class IRUtil {
     public IRUtil(Context c) {
         ir = (ConsumerIrManager)c.getSystemService(c.CONSUMER_IR_SERVICE);
         brandConst = new BrandConst();
-        curBrand = "NEC"; //defaults to NEC, will eventually change to whatever user is prompted with on startup
+        curBrand = "SAMSUNG"; //defaults to NEC, will eventually change to whatever user is prompted with on startup
         overridePrompt = false; //defaults to false
+        delay = false;
+        delayTime = 0;
         frTest();
     }
 
@@ -35,15 +39,13 @@ public class IRUtil {
         frTest();
     }
     public String getCurBrand() { return this.curBrand; }
-    public void setFr(int fr) {
-        this.fr = fr;
-    }
-    public int getFr() {
-        return this.fr;
-    }
-    public void frTest() {
-        fr = brandConst.getFr(curBrand);
-    }
+    public void setFr(int fr) { this.fr = fr; }
+    public int getFr() { return this.fr; }
+    public void setDelay(boolean delay) { this.delay = delay; }
+    public boolean getDelay(){ return this.delay; }
+    public void setDelayTime(int delayTime) { this.delayTime = delayTime; }
+    public int getDelayTime() { return this.delayTime; }
+    public void frTest() { fr = brandConst.getFr(curBrand); }
     public void setOverridePrompt(boolean b) {
         overridePrompt = b;
     }
@@ -63,6 +65,9 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
+        if(delay) {
+            runDelay();
+        }
 
         ir.transmit(fr, brandConst.getCommand("power", curBrand));;
     }
@@ -71,6 +76,9 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
+        if(delay) {
+            runDelay();
+        }
 
         ir.transmit(fr, brandConst.getCommand("poweron", curBrand));
     }
@@ -78,6 +86,9 @@ public class IRUtil {
     public void powerOff() {
         if (!willWork()) {
             return;
+        }
+        if(delay) {
+            runDelay();
         }
 
         if (!overridePrompt) { //if override prompt is enabled, send command twice, to bypass the "Are you sure?" dialog and automatically turn projector off
@@ -97,6 +108,9 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
+        if(delay) {
+            runDelay();
+        }
 
         ir.transmit(fr, brandConst.getCommand("input", curBrand));
     }
@@ -104,6 +118,9 @@ public class IRUtil {
     public void focusP() {
         if (!willWork()) {
             return;
+        }
+        if(delay) {
+            runDelay();
         }
 
         ir.transmit(fr, brandConst.getCommand("focusp", curBrand));
@@ -113,6 +130,9 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
+        if(delay) {
+            runDelay();
+        }
 
         ir.transmit(fr, brandConst.getCommand("focusm", curBrand));
     }
@@ -120,6 +140,9 @@ public class IRUtil {
     public void brightnessP() {
         if (!willWork()) {
             return;
+        }
+        if(delay) {
+            runDelay();
         }
 
         ir.transmit(fr, brandConst.getCommand("brightnessp", curBrand));;
@@ -129,6 +152,9 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
+        if(delay) {
+            runDelay();
+        }
 
         ir.transmit(fr, brandConst.getCommand("brightnessm", curBrand));;
     }
@@ -136,6 +162,9 @@ public class IRUtil {
     public void zoomP() {
         if (!willWork()) {
             return;
+        }
+        if(delay) {
+            runDelay();
         }
 
         ir.transmit(fr, brandConst.getCommand("zoomp", curBrand));;
@@ -145,6 +174,9 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
+        if(delay) {
+            runDelay();
+        }
 
         ir.transmit(fr, brandConst.getCommand("zoomm", curBrand));;
     }
@@ -152,6 +184,9 @@ public class IRUtil {
     public void pictureMute() {
         if (!willWork()) {
             return;
+        }
+        if(delay) {
+            runDelay();
         }
 
         ir.transmit(fr, brandConst.getCommand("picmute", curBrand));
@@ -161,6 +196,9 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
+        if(delay) {
+            runDelay();
+        }
 
         ir.transmit(fr, brandConst.getCommand("setup", curBrand));
     }
@@ -168,6 +206,9 @@ public class IRUtil {
     public void keyLock() {
         if (!willWork()) {
             return;
+        }
+        if(delay) {
+            runDelay();
         }
 
         ir.transmit(fr, brandConst.getCommand("keylock", curBrand));
@@ -177,6 +218,9 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
+        if(delay) {
+            runDelay();
+        }
 
         ir.transmit(fr, brandConst.getCommand("select", curBrand));
     }
@@ -184,6 +228,9 @@ public class IRUtil {
     public void up() {
         if (!willWork()) {
             return;
+        }
+        if(delay) {
+            runDelay();
         }
 
         ir.transmit(fr, brandConst.getCommand("up", curBrand));
@@ -193,6 +240,9 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
+        if(delay) {
+            runDelay();
+        }
 
         ir.transmit(fr, brandConst.getCommand("down", curBrand));
     }
@@ -200,6 +250,9 @@ public class IRUtil {
     public void left() {
         if (!willWork()) {
             return;
+        }
+        if(delay) {
+            runDelay();
         }
 
         ir.transmit(fr, brandConst.getCommand("left", curBrand));
@@ -209,6 +262,9 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
+        if(delay) {
+            runDelay();
+        }
 
         ir.transmit(fr, brandConst.getCommand("right", curBrand));
     }
@@ -216,6 +272,9 @@ public class IRUtil {
     public void volUp() {
         if (!willWork()) {
             return;
+        }
+        if(delay) {
+            runDelay();
         }
 
         ir.transmit(fr, brandConst.getCommand("volup", curBrand));
@@ -225,6 +284,9 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
+        if(delay) {
+            runDelay();
+        }
 
         ir.transmit(fr, brandConst.getCommand("voldown", curBrand));
     }
@@ -232,6 +294,9 @@ public class IRUtil {
     public void rapidMode() {
         if (!ir.hasIrEmitter()) {
             return;
+        }
+        if(delay) {
+            runDelay();
         }
 
         //creates thread to handle rapid mode
@@ -284,27 +349,21 @@ public class IRUtil {
         }).start();
     }
 
-    public void delayedFunction(int time, String function) {
+    public void runDelay() {
         //time in milliseconds
         try {
-            Thread.sleep(time);
+            Thread.sleep(delayTime * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-
-        switch (function) {
-            case ("poweroff"):
-                powerOff();
-                break;
-            case ("rapid"):
-                rapidMode();
-                break;
         }
     }
 
     public void springMode() {
         if (!ir.hasIrEmitter()) {
             return;
+        }
+        if(delay) {
+            runDelay();
         }
 
         //spring mode thread

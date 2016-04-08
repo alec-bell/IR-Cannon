@@ -2,9 +2,11 @@ package software.snowball.loworbitircannon;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.ConsumerIrManager;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -314,7 +316,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    protected void showDelayDialog(String function) {
+    /*protected void showDelayDialog(String function) {
         LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
         View promptView = layoutInflater.inflate(R.layout.delay_dialog, null);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
@@ -354,7 +356,7 @@ public class MainActivity extends AppCompatActivity {
         //creating the dialog
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
-    }
+    }*/
 
     protected void showInputDialog() {
 
@@ -406,6 +408,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this, MainActivity.class));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+
+        boolean defaultEnableDelay = getResources().getBoolean(R.bool.toggle_delay_switch);
+        boolean enableDelay = preferences.getBoolean("toggle_delay_switch", defaultEnableDelay);
+        irUtil.setDelay(enableDelay);
+
+        String defaultDelayTime = getResources().getString(R.string.delay_time);
+        String delayTime = preferences.getString("delay_time", defaultDelayTime);
+        irUtil.setDelayTime(Integer.valueOf(delayTime));
+
+        String defaultBrandName = getResources().getString(R.string.pref_general_brand);
+        String brandName = preferences.getString("brand", defaultBrandName);
+        irUtil.setCurBrand(brandName);
+        this.brand.setText(brandName + " Device Remote");
+
     }
 
     public static class SettingsFragment extends PreferenceFragment {

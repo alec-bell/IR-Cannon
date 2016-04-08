@@ -83,6 +83,22 @@
 
     <string name="pref_title_delay">Delay</string>
     <string name="pref_delay_toggle">Enable Delay</string>
+    <bool name="toggle_delay_switch">false</bool>
     <string name="pref_delay_toggle_summary">Execute commands after a specified amount of time.</string>
     <string name="pref_delay_time">Delay Time (seconds)</string>
+    <string name="delay_time">0</string>
+
+    <string name="pref_general_brand">Device Brand</string>
+    <string name="pref_general_brand_summary">Choose the brand of your device.</string>
+    <string-array name="pref_general_brands">
+        <item>Samsung</item>
+        <item>NEC</item>
+        <item>Epson</item>
+    </string-array>
+
+    <string-array name="brands_values">
+        <item>SAMSUNG</item>
+        <item>NEC</item>
+        <item>EPSON</item>
+    </string-array>
 </resources>

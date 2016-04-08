@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
                 android:id="@+id/tvBrand"
-                android:text="NEC Device Remote"/>
+                android:text="Samsung Device Remote"/>
         </LinearLayout>
 
 

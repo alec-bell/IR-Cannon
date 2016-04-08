@@ -5,30 +5,19 @@
         android:key="blank" />
 
     <PreferenceCategory
-        android:title="@string/pref_title_commands">
-
-        <SwitchPreference
-            android:defaultValue="true"
-            android:key="enable_power_off_prompt_override"
-            android:summary="@string/pref_power_off_prompt_override_summary"
-            android:title="@string/pref_power_off_prompt_override" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:title="@string/pref_title_delay">
 
         <SwitchPreference
-            android:defaultValue="false"
+            android:defaultValue="@bool/toggle_delay_switch"
             android:key="toggle_delay_switch"
             android:summary="@string/pref_delay_toggle_summary"
-            android:title="@string/pref_delay_toggle" />
+            android:title="@string/pref_delay_toggle"/>
 
         <EditTextPreference
             android:capitalize="words"
-            android:defaultValue="0"
+            android:defaultValue="@string/delay_time"
             android:inputType="number"
-            android:key="pref_delay_time_text"
+            android:key="delay_time"
             android:maxLines="1"
             android:selectAllOnFocus="true"
             android:singleLine="true"
@@ -41,6 +30,14 @@
 
         <ListPreference
             android:defaultValue="1"
+            android:entries="@array/pref_general_brands"
+            android:entryValues="@array/brands_values"
+            android:key="brand"
+            android:title="@string/pref_general_brand"
+            android:summary="@string/pref_general_brand_summary"/>
+
+        <ListPreference
+            android:defaultValue="SAMSUNG"
             android:entries="@array/pref_general_themes"
             android:entryValues="@array/pref_general_themes_values"
             android:key="theme_list"
