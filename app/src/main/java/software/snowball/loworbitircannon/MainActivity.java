@@ -50,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
     Button zoomm;
     Button rapid;
     Button spring;
+    Button select;
+    Button up;
+    Button down;
+    Button left;
+    Button right;
+    Button volUp;
+    Button volDown;
+
     //Button delayedPower;
     //Button delayedRapid;
     TextView brand;
@@ -82,6 +90,13 @@ public class MainActivity extends AppCompatActivity {
         zoomm = (Button) findViewById(R.id.btnZoomm);
         rapid = (Button) findViewById(R.id.btnRapid);
         spring = (Button) findViewById(R.id.btnSpring);
+        select = (Button) findViewById(R.id.btnOK);
+        up = (Button) findViewById(R.id.btnPageUp);
+        down = (Button) findViewById(R.id.btnPageDown);
+        left = (Button) findViewById(R.id.btnPageLeft);
+        right = (Button) findViewById(R.id.btnPageRight);
+        volUp = (Button) findViewById(R.id.btnVolumeUp);
+        volDown = (Button) findViewById(R.id.btnVolumeDown);
         //delayedPower = (Button) findViewById(R.id.btnDelayOff);
         //delayedRapid = (Button) findViewById(R.id.btnDelayRapid);
         brand = (TextView) findViewById(R.id.tvBrand);
@@ -194,6 +209,48 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 irUtil.springMode();
+            }
+        });
+        select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irUtil.select();
+            }
+        });
+        up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irUtil.up();
+            }
+        });
+        down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irUtil.down();
+            }
+        });
+        left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irUtil.left();
+            }
+        });
+        right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irUtil.right();
+            }
+        });
+        volUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irUtil.volUp();
+            }
+        });
+        volDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irUtil.volDown();
             }
         });
         /*
