@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
     Button power;
     Button video;
     Button picmute; //mutes picture
-    Button keylock;
-    Button setup; //random menu that serves unknown purpose (for testing purposes)
     Button focusp; //focus in
     Button focusm; //focus out
     Button brightnessp; //raise brightness
