@@ -7,58 +7,12 @@
         <item>Dark</item>
     </string-array>
 
-
-    <!-- Strings related to Settings -->
-
     <!-- Example General settings -->
     <string name="pref_header_general">Command Preferences</string>
 
     <string name="pref_power_off_prompt_override">Enable Power Off Prompt Override</string>
     <string name="pref_power_off_prompt_override_summary">Turn device off automatically, ignoring power-off prompts.
     </string>
-
-    <string name="pref_title_display_name">Repeater Mode Frequency(ms)</string>
-    <string name="pref_default_display_name">250</string>
-
-    <string name="pref_title_add_friends_to_messages">Automatically Save Macros</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
-
-    <!-- Example settings for App Settings -->
-    <string name="pref_header_data_sync">Application Settings</string>
-
-    <string name="pref_title_sync_frequency">Theme</string>
-    <string-array name="pref_sync_frequency_titles">
-        <item>Light</item>
-        <item>Dark</item>
-        <item>Black</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>1</item>
-        <item>0</item>
-        <item>2</item>
-    </string-array>
-
-    <string name="pref_title_system_sync_settings">Upgrade to Premium!</string>
-
-    <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
-
-    <string name="pref_title_new_message_notifications">Disable Notification LED</string>
-
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_ringtone_silent">Silent</string>
-
-    <string name="pref_title_vibrate">Vibrate When Command is Sent</string>
-    <string name="vibrate_summary">Not including rapid modes</string>
 
     <string name="loirc_about"><i>Low Orbit IR Cannon</i> is a infrared remote mobile application that is capable of functioning with many television and projector sets. It includes extra functionality that may be used to test out infrared technology at home.</string>
     <string name="snowball_software_about"><b>Snowball Software, LLC</b> is a software development company based out of Cincinnati, Ohio.</string>
@@ -86,64 +40,64 @@
     <bool name="toggle_delay_switch">false</bool>
     <string name="pref_delay_toggle_summary">Execute commands after a specified amount of time.</string>
     <string name="pref_delay_time">Delay Time (seconds)</string>
-    <string name="delay_time">0</string>
+    <string name="delay_time">3</string>
 
     <string name="pref_general_brand">Device Brand</string>
     <string name="pref_general_brand_summary">Choose the brand of your device.</string>
     <string-array name="pref_general_brands">
-        <item>Samsung</item>
         <item>NEC</item>
+        <item>Acer</item>
+        <item>Advent</item>
+        <item>Apple</item>
+        <item>Bose</item>
+        <item>Casio</item>
+        <item>Dell</item>
+        <item>Dynex</item>
         <item>Epson</item>
+        <item>Hitachi</item>
+        <item>HP</item>
+        <item>Insignia</item>
+        <item>JVC</item>
+        <item>Samsung</item>
         <item>Vizio</item>
         <item>LG</item>
-        <item>HP</item>
-        <item>Dynex</item>
-        <item>Insignia</item>
-        <item>Casio</item>
-        <item>Hitachi</item>
         <item>Sony</item>
         <item>Vivitek</item>
         <item>Panasonic</item>
         <item>Toshiba</item>
-        <item>Apple</item>
         <item>Sharp</item>
         <item>Philips</item>
-        <item>JVC</item>
         <item>Onkyo</item>
         <item>Mitsubishi</item>
         <item>RCA</item>
-        <item>Acer</item>
-        <item>Advent</item>
-        <item>Dell</item>
-        <item>Bose</item>
     </string-array>
 
     <string-array name="brands_values">
-        <item>SAMSUNG</item>
         <item>NEC</item>
+        <item>ACER</item>
+        <item>ADVENT</item>
+        <item>APPLE</item>
+        <item>BOSE</item>
+        <item>CASIO</item>
+        <item>DELL</item>
+        <item>DYNEX</item>
         <item>EPSON</item>
+        <item>HITACHI</item>
+        <item>HP</item>
+        <item>INSIGNIA</item>
+        <item>JVC</item>
+        <item>SAMSUNG</item>
         <item>VIZIO</item>
         <item>LG</item>
-        <item>HP</item>
-        <item>DYNEX</item>
-        <item>INSIGNIA</item>
-        <item>CASIO</item>
-        <item>HITACHI</item>
         <item>SONY</item>
         <item>VIVITEK</item>
         <item>PANASONIC</item>
         <item>TOSHIBA</item>
-        <item>APPLE</item>
         <item>SHARP</item>
         <item>PHILIPS</item>
-        <item>JVC</item>
         <item>ONKYO</item>
         <item>MITSUBISHI</item>
         <item>RCA</item>
-        <item>ACER</item>
-        <item>ADVENT</item>
-        <item>DELL</item>
-        <item>BOSE</item>
     </string-array>
 
     <string name="pref_general_device">Device Type</string>
@@ -152,20 +106,14 @@
     <string-array name="pref_general_devices">
         <item>Television</item>
         <item>Projector</item>
-        <item>Microwave</item>
-        <item>Radio</item>
         <item>Audio Receiver</item>
-        <item>Home Theater</item>
         <item>Other Device</item>
     </string-array>
 
     <string-array name="devices_values">
         <item>TV</item>
         <item>PROJECTOR</item>
-        <item>MICROWAVE</item>
-        <item>RADIO</item>
         <item>AUDIORECEIVER</item>
-        <item>HOMETHEATER</item>
         <item>OTHER</item>
     </string-array>
 </resources>

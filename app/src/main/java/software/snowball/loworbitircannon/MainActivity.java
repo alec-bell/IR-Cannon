@@ -1,13 +1,11 @@
 package software.snowball.loworbitircannon;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.ConsumerIrManager;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -17,18 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.gc.materialdesign.views.ButtonRectangle;
 
 public class MainActivity extends AppCompatActivity {
-
-
-    //another good site: irdb.tk
-    //NOTE: NEC is the only brand that's supported as of now
-    //NOTE: isFirstRun() is always true right now, for testing purposes.  it can be changed in the checkFirstRun() method.
 
     ConsumerIrManager ir;
     IRUtil irUtil;
@@ -36,10 +25,9 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     private final String[] brands = {"NEC", "SAMSUNG", "EPSON"};
     private boolean isOn;
+    private String deviceType;
 
     Button power;
-    //Button powerOn;
-    //Button powerOff;
     Button video;
     Button picmute; //mutes picture
     Button keylock;
@@ -59,15 +47,13 @@ public class MainActivity extends AppCompatActivity {
     Button right;
     Button volUp;
     Button volDown;
-
-    //Button delayedPower;
-    //Button delayedRapid;
     TextView brand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //set up toolbar
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
@@ -77,13 +63,8 @@ public class MainActivity extends AppCompatActivity {
         //initializing objects
 
         power = (Button) findViewById(R.id.btnPower);
-
-        //powerOn = (Button) findViewById(R.id.btnPowerOn);
-        //powerOff = (Button) findViewById(R.id.btnPowerOff);
         video = (Button) findViewById(R.id.btnInput);
         picmute = (Button) findViewById(R.id.btnPicMute);
-        //keylock = (Button) findViewById(R.id.btnKeyLock);
-        //setup = (Button) findViewById(R.id.btnSetup);
         focusp = (Button) findViewById(R.id.btnFocusP);
         focusm = (Button) findViewById(R.id.btnFocusM);
         brightnessp = (Button) findViewById(R.id.btnBrightnessp);
@@ -99,15 +80,12 @@ public class MainActivity extends AppCompatActivity {
         right = (Button) findViewById(R.id.btnPageRight);
         volUp = (Button) findViewById(R.id.btnVolumeUp);
         volDown = (Button) findViewById(R.id.btnVolumeDown);
-        //delayedPower = (Button) findViewById(R.id.btnDelayOff);
-        //delayedRapid = (Button) findViewById(R.id.btnDelayRapid);
         brand = (TextView) findViewById(R.id.tvBrand);
         irUtil = new IRUtil(getApplicationContext());
-        /**
-         * 4/6/16: disabling first run dialog for now, defaulting brand to NEC automatically
-         * checkFirstRun();
-         */
+
+        deviceType = "Projector";
         setBrand("NEC");
+
 
         //setting listeners to handle clicking
 
@@ -119,28 +97,12 @@ public class MainActivity extends AppCompatActivity {
                     power.setBackgroundColor(Color.rgb(20, 90, 50));
                     isOn = false;
                 } else {
-                    irUtil.powerOn();
+                    irUtil.powerOff();
                     power.setBackgroundColor(Color.rgb(146, 43, 33));
                     isOn = true;
                 }
             }
         });
-        /*
-        powerOn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                irUtil.powerOn();
-            }
-        });
-        */
-        /*
-        powerOff.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                irUtil.powerOff();
-            }
-        });
-        */
         video.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,18 +115,6 @@ public class MainActivity extends AppCompatActivity {
                 irUtil.pictureMute();
             }
         });
-        /*keylock.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                irUtil.keyLock();
-            }
-        });*/
-        /*setup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                irUtil.setup();
-            }
-        });*/
         focusp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -255,22 +205,6 @@ public class MainActivity extends AppCompatActivity {
                 irUtil.volDown();
             }
         });
-        /*
-        delayedPower.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDelayDialog("poweroff");
-            }
-        });
-        */
-        /*
-        delayedRapid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDelayDialog("rapid");
-            }
-        });
-        */
     }
 
     @Override
@@ -299,110 +233,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void setBrand(String b) {
         irUtil.setCurBrand(b.toUpperCase());
-        brand.setText(b + " Device Remote");
-    }
-
-    public void checkFirstRun() {
-        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
-        //isFirstRun = true; //for testing purposes only
-        if (isFirstRun) {
-            //prompt user for brand
-            showInputDialog();
-            //modify isFirstRun to be false
-            getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                    .edit()
-                    .putBoolean("isFirstRun", false)
-                    .apply();
-        }
-    }
-
-    /*protected void showDelayDialog(String function) {
-        LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
-        View promptView = layoutInflater.inflate(R.layout.delay_dialog, null);
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-        alertDialogBuilder.setView(promptView);
-        final String f = function;
-
-        final EditText editText = (EditText) promptView.findViewById(R.id.edittext);
-        //setup a dialog window
-        alertDialogBuilder.setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        boolean isValid = true;
-                        int temp = Integer.parseInt(editText.getText().toString());
-                        if (temp < 2) {
-                            isValid = false;
-                            Toast.makeText(getApplicationContext(), "Error! Desired time is too short!", Toast.LENGTH_LONG);
-                        }
-                        if (temp > 120) {
-                            isValid = false;
-                            Toast.makeText(getApplicationContext(), "Error! Desired time is too long!", Toast.LENGTH_LONG);
-                        }
-
-                        if (isValid) {
-                            //note: converts time from seconds to milliseconds (seconds are more input friendly
-                            irUtil.delayedFunction(temp * 1000, f);
-                        }
-                    }
-                })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //don't run method
-                        dialog.cancel();
-                    }
-                });
-        //creating the dialog
-        AlertDialog alert = alertDialogBuilder.create();
-        alert.show();
-    }*/
-
-    protected void showInputDialog() {
-
-        // get prompts.xml view
-        LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
-        View promptView = layoutInflater.inflate(R.layout.input_dialog, null);
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-        alertDialogBuilder.setView(promptView);
-
-        final EditText editText = (EditText) promptView.findViewById(R.id.edittext);
-        // setup a dialog window
-        alertDialogBuilder.setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        if (!editText.getText().toString().matches("")) {
-                            boolean isValid = false;
-                            for (int i = 0; i < brands.length; i++) {
-                                if (brands[i].equals(editText.getText().toString().toUpperCase().trim())) {
-                                    isValid = true;
-                                    break;
-                                }
-                            }
-                            if (isValid) {
-                                setBrand(editText.getText().toString().toUpperCase().trim());
-                            } else {
-                                Toast.makeText(getApplicationContext(), "Brand not found! Defaulting to NEC", Toast.LENGTH_LONG).show();
-                                setBrand("NEC");
-                            }
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Brand not found! Defaulting to NEC", Toast.LENGTH_LONG).show();
-                            setBrand("NEC");
-                        }
-                    }
-                })
-                .setNegativeButton("Cancel",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                //default brand to NEC
-                                irUtil.setCurBrand("NEC");
-                                dialog.cancel();
-                            }
-                        });
-
-        // create an alert dialog
-        AlertDialog alert = alertDialogBuilder.create();
-        alert.show();
+        brand.setText(b + " " + deviceType + " Remote");
     }
 
     @Override
@@ -430,13 +261,13 @@ public class MainActivity extends AppCompatActivity {
         String defaultBrandName = getResources().getString(R.string.pref_general_brand);
         String brandName = preferences.getString("brand", defaultBrandName);
         irUtil.setCurBrand(brandName);
-        this.brand.setText(brandName + " Device Remote");
+
 
         //set type of device
         String defaultDeviceType = getResources().getString(R.string.pref_general_device);
         String deviceType = preferences.getString("device", defaultDeviceType);
-        //variable exists but is unused
 
+        brand.setText(brandName + " " + deviceType + " Remote");
     }
 
     public static class SettingsFragment extends PreferenceFragment {
