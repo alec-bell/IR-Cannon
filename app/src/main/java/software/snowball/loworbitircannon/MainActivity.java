@@ -22,11 +22,9 @@ public class MainActivity extends AppCompatActivity {
     ConsumerIrManager ir;
     IRUtil irUtil;
 
-    Toolbar toolbar;
-    private final String[] brands = {"NEC", "SAMSUNG", "EPSON"};
     private boolean isOn;
-    private String deviceType;
 
+    Toolbar toolbar;
     Button power;
     Button video;
     Button picmute; //mutes picture
@@ -56,10 +54,16 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
+        irUtil = new IRUtil(getApplicationContext());
+
+        //set up remote description
+        brand = (TextView) findViewById(R.id.tvBrand);
+        setRemoteDescription();
+
+        //device is assumed to be off when remote is opened
         isOn = false;
 
         //initializing objects
-
         power = (Button) findViewById(R.id.btnPower);
         video = (Button) findViewById(R.id.btnInput);
         picmute = (Button) findViewById(R.id.btnPicMute);
@@ -78,15 +82,8 @@ public class MainActivity extends AppCompatActivity {
         right = (Button) findViewById(R.id.btnPageRight);
         volUp = (Button) findViewById(R.id.btnVolumeUp);
         volDown = (Button) findViewById(R.id.btnVolumeDown);
-        brand = (TextView) findViewById(R.id.tvBrand);
-        irUtil = new IRUtil(getApplicationContext());
-
-        deviceType = "Projector";
-        setBrand("NEC");
-
 
         //setting listeners to handle clicking
-
         power.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -205,6 +202,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void setRemoteDescription() {
+        brand.setText(irUtil.getCurBrand() + " " + irUtil.getDeviceType() + " REMOTE");
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //about and settings options on toolbar
@@ -227,11 +228,6 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    public void setBrand(String b) {
-        irUtil.setCurBrand(b.toUpperCase());
-        brand.setText(b + " " + deviceType + " Remote");
     }
 
     @Override
@@ -264,8 +260,9 @@ public class MainActivity extends AppCompatActivity {
         //set type of device
         String defaultDeviceType = getResources().getString(R.string.pref_general_device);
         String deviceType = preferences.getString("device", defaultDeviceType);
+        irUtil.setDeviceType(deviceType);
 
-        brand.setText(brandName + " " + deviceType + " Remote");
+        setRemoteDescription();
     }
 
     public static class SettingsFragment extends PreferenceFragment {
@@ -274,7 +271,6 @@ public class MainActivity extends AppCompatActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.pref_general);
         }
 

@@ -11,12 +11,14 @@ import java.util.Random;
  * Created by rudyza on 3/18/2016.
  */
 public class IRUtil {
+
     private ConsumerIrManager ir;
     private BrandConst brandConst;
     private String curBrand;
     private int delayTime;
     private boolean delay;
     private int fr;
+    private String deviceType;
     private boolean overridePrompt; //for poweroff command (changed in settings eventually)
 
     //command names for brandConst
@@ -24,33 +26,14 @@ public class IRUtil {
             "setup", "zoomp", "zoomm", "picmute", "keylock", "select", "up", "down", "left", "right", "volup", "voldown"};
 
     public IRUtil(Context c) {
-        ir = (ConsumerIrManager)c.getSystemService(c.CONSUMER_IR_SERVICE);
+        ir = (ConsumerIrManager) c.getSystemService(c.CONSUMER_IR_SERVICE);
         brandConst = new BrandConst();
-        curBrand = "SAMSUNG"; //defaults to NEC, will eventually change to whatever user is prompted with on startup
+        curBrand = "SAMSUNG"; //defaults to SAMSUNG, will eventually change to whatever user is prompted with on startup
+        deviceType = "TV"; //defaults to TV
         overridePrompt = false; //defaults to false
         delay = false;
         delayTime = 0;
         frTest();
-    }
-
-    //misc methods
-    public void setCurBrand(String b) {
-        this.curBrand = b;
-        frTest();
-    }
-    public String getCurBrand() { return this.curBrand; }
-    public void setFr(int fr) { this.fr = fr; }
-    public int getFr() { return this.fr; }
-    public void setDelay(boolean delay) { this.delay = delay; }
-    public boolean getDelay(){ return this.delay; }
-    public void setDelayTime(int delayTime) { this.delayTime = delayTime; }
-    public int getDelayTime() { return this.delayTime; }
-    public void frTest() { fr = brandConst.getFr(curBrand); }
-    public void setOverridePrompt(boolean b) {
-        overridePrompt = b;
-    }
-    public boolean getOverridePrompt() {
-        return overridePrompt;
     }
 
     public boolean willWork() {
@@ -65,18 +48,18 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
-        ir.transmit(fr, brandConst.getCommand("power", curBrand));;
+        ir.transmit(fr, brandConst.getCommand("power", curBrand));
     }
 
     public void powerOn() {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -87,7 +70,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -108,7 +91,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -119,7 +102,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -130,7 +113,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -141,51 +124,51 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
-        ir.transmit(fr, brandConst.getCommand("brightnessp", curBrand));;
+        ir.transmit(fr, brandConst.getCommand("brightnessp", curBrand));
     }
 
     public void brightnessM() {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
-        ir.transmit(fr, brandConst.getCommand("brightnessm", curBrand));;
+        ir.transmit(fr, brandConst.getCommand("brightnessm", curBrand));
     }
 
     public void zoomP() {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
-        ir.transmit(fr, brandConst.getCommand("zoomp", curBrand));;
+        ir.transmit(fr, brandConst.getCommand("zoomp", curBrand));
     }
 
     public void zoomM() {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
-        ir.transmit(fr, brandConst.getCommand("zoomm", curBrand));;
+        ir.transmit(fr, brandConst.getCommand("zoomm", curBrand));
     }
 
     public void pictureMute() {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -196,7 +179,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -207,7 +190,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -218,7 +201,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -229,7 +212,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -240,7 +223,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -251,7 +234,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -262,7 +245,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -273,7 +256,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -284,7 +267,7 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
 
@@ -295,7 +278,7 @@ public class IRUtil {
         if (!ir.hasIrEmitter()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
         final boolean tempDelay = delay;
@@ -304,6 +287,7 @@ public class IRUtil {
         //creates thread to handle rapid mode
         new Thread(new Runnable() {
             Random rnd = new Random();
+
             @Override
             public void run() {
                 for (int i = 0; i < 15; i++) {
@@ -365,7 +349,7 @@ public class IRUtil {
         if (!ir.hasIrEmitter()) {
             return;
         }
-        if(delay) {
+        if (delay) {
             runDelay();
         }
         final boolean tempDelay = delay;
@@ -375,7 +359,7 @@ public class IRUtil {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for(int i = 0; i < 10; i++) {
+                for (int i = 0; i < 10; i++) {
                     //zoom in 5 times
                     for (int y = 0; y < 5; y++) {
                         focusP();
@@ -413,5 +397,54 @@ public class IRUtil {
                 delay = tempDelay;
             }
         }).start();
+    }
+
+    //getters and setters
+    public void setCurBrand(String b) {
+        this.curBrand = b;
+        frTest();
+    }
+
+    public String getCurBrand() {
+        return this.curBrand;
+    }
+
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
+    }
+    public String getDeviceType() {
+        return this.deviceType;
+    }
+
+    public void setFr(int fr) {
+        this.fr = fr;
+    }
+    public int getFr() {
+        return this.fr;
+    }
+
+    public void setDelay(boolean delay) {
+        this.delay = delay;
+    }
+    public boolean getDelay(){
+        return this.delay;
+    }
+
+    public void setDelayTime(int delayTime) {
+        this.delayTime = delayTime;
+    }
+    public int getDelayTime() {
+        return this.delayTime;
+    }
+
+    public void frTest() {
+        fr = brandConst.getFr(curBrand);
+    }
+
+    public void setOverridePrompt(boolean overridePrompt) {
+        this.overridePrompt = overridePrompt;
+    }
+    public boolean getOverridePrompt() {
+        return overridePrompt;
     }
 }

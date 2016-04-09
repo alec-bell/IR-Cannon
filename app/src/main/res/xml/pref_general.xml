@@ -37,7 +37,7 @@
             android:summary="@string/pref_general_brand_summary"/>
 
         <ListPreference
-            android:defaultValue="1"
+            android:defaultValue="TV"
             android:entries="@array/pref_general_devices"
             android:entryValues="@array/devices_values"
             android:key="device"
