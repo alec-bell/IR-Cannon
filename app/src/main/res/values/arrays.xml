@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--settings activity arrays!-->
+
+        <!--device brands!-->
+            <string-array name="pref_general_brands">
+                <item>NEC</item>
+                <item>Acer</item>
+                <item>Advent</item>
+                <item>Apple</item>
+                <item>Bose</item>
+                <item>Casio</item>
+                <item>Dell</item>
+                <item>Dynex</item>
+                <item>Epson</item>
+                <item>Hitachi</item>
+                <item>HP</item>
+                <item>Insignia</item>
+                <item>JVC</item>
+                <item>LG</item>
+                <item>Samsung</item>
+                <item>Vizio</item>
+                <item>Sony</item>
+                <item>Vivitek</item>
+                <item>Panasonic</item>
+                <item>Toshiba</item>
+                <item>Sharp</item>
+                <item>Philips</item>
+                <item>Onkyo</item>
+                <item>Mitsubishi</item>
+                <item>RCA</item>
+            </string-array>
+
+            <string-array name="brands_values">
+                <item>NEC</item>
+                <item>ACER</item>
+                <item>ADVENT</item>
+                <item>APPLE</item>
+                <item>BOSE</item>
+                <item>CASIO</item>
+                <item>DELL</item>
+                <item>DYNEX</item>
+                <item>EPSON</item>
+                <item>HITACHI</item>
+                <item>HP</item>
+                <item>INSIGNIA</item>
+                <item>JVC</item>
+                <item>LG</item>
+                <item>SAMSUNG</item>
+                <item>VIZIO</item>
+                <item>SONY</item>
+                <item>VIVITEK</item>
+                <item>PANASONIC</item>
+                <item>TOSHIBA</item>
+                <item>SHARP</item>
+                <item>PHILIPS</item>
+                <item>ONKYO</item>
+                <item>MITSUBISHI</item>
+                <item>RCA</item>
+            </string-array>
+
+        <!--device types!-->
+            <string-array name="pref_general_devices">
+                <item>Television</item>
+                <item>Projector</item>
+                <item>Audio Receiver</item>
+                <item>Other Device</item>
+            </string-array>
+
+            <string-array name="devices_values">
+                <item>TV</item>
+                <item>PROJECTOR</item>
+                <item>AUDIORECEIVER</item>
+                <item>OTHER</item>
+            </string-array>
+
+        <!--app themes!-->
+            <string-array name="pref_general_themes">
+                <item>Dark</item>
+                <item>Light</item>
+            </string-array>
+
+            <string-array name="pref_general_themes_values">
+                <item>DARK</item>
+                <item>LIGHT</item>
+            </string-array>
+
+</resources>

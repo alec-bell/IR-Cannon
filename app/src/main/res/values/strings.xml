@@ -1,119 +1,37 @@
 <resources>
-    <string name="app_name">IR Cannon</string>
-    <string name="title_activity_settings">Settings</string>
+    <!--General app strings!-->
+        <string name="app_name">IR Cannon</string>
 
-    <string-array name="themes">
-        <item>Light</item>
-        <item>Dark</item>
-    </string-array>
+    <!--About activity strings!-->
+        <string name="title_activity_about">About</string>
 
-    <!-- Example General settings -->
-    <string name="pref_header_general">Command Preferences</string>
+        <string name="loirc_about"><i>IR Cannon</i> is a infrared remote mobile application that is capable of functioning with many television and projector sets. It includes extra functionality that may be used to test out infrared technology at home.</string>
+        <string name="snowball_software_about"><b>Snowball Software, LLC</b> is a software development company based out of Cincinnati, Ohio.</string>
 
-    <string name="pref_power_off_prompt_override">Enable Power Off Prompt Override</string>
-    <string name="pref_power_off_prompt_override_summary">Turn device off automatically, ignoring power-off prompts.
-    </string>
+    <!--Settings activity strings!-->
+        <string name="title_activity_settings">Settings</string>
 
-    <string name="loirc_about"><i>Low Orbit IR Cannon</i> is a infrared remote mobile application that is capable of functioning with many television and projector sets. It includes extra functionality that may be used to test out infrared technology at home.</string>
-    <string name="snowball_software_about"><b>Snowball Software, LLC</b> is a software development company based out of Cincinnati, Ohio.</string>
+        <string name="pref_title_delay">Delay</string>
 
-    <string name="title_activity_about">About</string>
+            <!--delay switch!-->
+                <string name="pref_delay_toggle">Enable Delay</string>
+                <string name="pref_delay_toggle_summary">Execute commands after a specified amount of time.</string>
 
-    <string name="pref_title_general">General</string>
+            <!--delay time!-->
+                <string name="pref_delay_time">Delay Time (seconds)</string>
+                <string name="delay_time">3</string>
 
-    <string name="pref_title_commands">Commands</string>
+        <string name="pref_title_general">General</string>
 
-    <string-array name="pref_general_themes">
-        <item>Dark (Default)</item>
-        <item>Light</item>
-    </string-array>
+            <!--device brand!-->
+                <string name="pref_general_brand">Device Brand</string>
+                <string name="pref_general_brand_summary">Choose the brand of your device.</string>
 
-    <string-array name="pref_general_themes_values">
-        <item>1</item>
-        <item>0</item>
-    </string-array>
+            <!--device type!-->
+                <string name="pref_general_device">Device Type</string>
+                <string name="pref_general_device_summary">Choose the type of your device.</string>
 
-    <string name="pref_general_theme">Theme</string>
+            <!--device theme!-->
+                <string name="pref_general_theme">Theme</string>
 
-    <string name="pref_title_delay">Delay</string>
-    <string name="pref_delay_toggle">Enable Delay</string>
-    <bool name="toggle_delay_switch">false</bool>
-    <string name="pref_delay_toggle_summary">Execute commands after a specified amount of time.</string>
-    <string name="pref_delay_time">Delay Time (seconds)</string>
-    <string name="delay_time">3</string>
-
-    <string name="pref_general_brand">Device Brand</string>
-    <string name="pref_general_brand_summary">Choose the brand of your device.</string>
-    <string-array name="pref_general_brands">
-        <item>NEC</item>
-        <item>Acer</item>
-        <item>Advent</item>
-        <item>Apple</item>
-        <item>Bose</item>
-        <item>Casio</item>
-        <item>Dell</item>
-        <item>Dynex</item>
-        <item>Epson</item>
-        <item>Hitachi</item>
-        <item>HP</item>
-        <item>Insignia</item>
-        <item>JVC</item>
-        <item>LG</item>
-        <item>Samsung</item>
-        <item>Vizio</item>
-        <item>Sony</item>
-        <item>Vivitek</item>
-        <item>Panasonic</item>
-        <item>Toshiba</item>
-        <item>Sharp</item>
-        <item>Philips</item>
-        <item>Onkyo</item>
-        <item>Mitsubishi</item>
-        <item>RCA</item>
-    </string-array>
-
-    <string-array name="brands_values">
-        <item>NEC</item>
-        <item>ACER</item>
-        <item>ADVENT</item>
-        <item>APPLE</item>
-        <item>BOSE</item>
-        <item>CASIO</item>
-        <item>DELL</item>
-        <item>DYNEX</item>
-        <item>EPSON</item>
-        <item>HITACHI</item>
-        <item>HP</item>
-        <item>INSIGNIA</item>
-        <item>JVC</item>
-        <item>LG</item>
-        <item>SAMSUNG</item>
-        <item>VIZIO</item>
-        <item>SONY</item>
-        <item>VIVITEK</item>
-        <item>PANASONIC</item>
-        <item>TOSHIBA</item>
-        <item>SHARP</item>
-        <item>PHILIPS</item>
-        <item>ONKYO</item>
-        <item>MITSUBISHI</item>
-        <item>RCA</item>
-    </string-array>
-
-    <string name="pref_general_device">Device Type</string>
-    <string name="pref_general_device_summary">Choose the type of your device.</string>
-
-    <string-array name="pref_general_devices">
-        <item>Television</item>
-        <item>Projector</item>
-        <item>Audio Receiver</item>
-        <item>Other Device</item>
-    </string-array>
-
-    <string-array name="devices_values">
-        <item>TV</item>
-        <item>PROJECTOR</item>
-        <item>AUDIORECEIVER</item>
-        <item>OTHER</item>
-    </string-array>
 </resources>
