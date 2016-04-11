@@ -1,5 +1,7 @@
 package software.snowball.loworbitircannon;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,14 +11,18 @@ import java.util.List;
 public class CommandQueue implements Runnable {
 
     private List<String> queue;
+    private IRUtil irUtil;
 
-    public CommandQueue() {
+    public CommandQueue(Context context, String brand) {
         queue = new ArrayList<String>();
+        irUtil = new IRUtil(context);
     }
 
     @Override
     public void run() {
+        while (queue.size() > 0) {
 
+        }
     }
 
     public void addCommand(String command) {
