@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                     power.setBackgroundColor(Color.rgb(20, 90, 50));
                     isOn = false;
                 } else {
-                    irUtil.powerOff();
+                    irUtil.powerOn();
                     power.setBackgroundColor(Color.rgb(146, 43, 33));
                     isOn = true;
                 }

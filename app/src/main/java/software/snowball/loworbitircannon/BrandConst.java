@@ -17,6 +17,130 @@ public class BrandConst {
     //IR codes for NEC
     final String[] funcs = {"power", "poweron", "poweroff", "input", "focusp", "focusm", "brightnessp", "brightnessm", "contrastp", "contrastm",
             "setup", "zoomp", "zoomm", "picmute", "keylock", "select", "up", "down", "left", "right", "volup", "voldown"};
+
+    //I understand that this is super immature code
+    public BrandConst() {
+        NEC = new ArrayList<>();
+        Epson = new ArrayList<>();
+        Samsung = new ArrayList<>();
+
+        NEC.add(NECp);
+        NEC.add(NECpOn);
+        NEC.add(NECpOff);
+        NEC.add(NECinput);
+        NEC.add(NECfocusp);
+        NEC.add(NECfocusm);
+        NEC.add(NECbrightnessp);
+        NEC.add(NECbrightnessm);
+        NEC.add(NECcontrastp);
+        NEC.add(NECcontrastm);
+        NEC.add(NECsetup);
+        NEC.add(NECzoomp);
+        NEC.add(NECzoomm);
+        NEC.add(NECpicmute);
+        NEC.add(NECkeylock);
+        NEC.add(NECselect);
+        NEC.add(NECup);
+        NEC.add(NECdown);
+        NEC.add(NECleft);
+        NEC.add(NECright);
+        NEC.add(NECvolup);
+        NEC.add(NECvoldown);
+        Epson.add(Epp);
+        Epson.add(EppOn);
+        Epson.add(EppOff);
+        Epson.add(Epinput);
+        Epson.add(Epfocusp);
+        Epson.add(Epfocusm);
+        Epson.add(Epbrightnessp);
+        Epson.add(Epbrightnessm);
+        Epson.add(Epcontrastp);
+        Epson.add(Epcontrastm);
+        Epson.add(Epsetup);
+        Epson.add(Epzoomp);
+        Epson.add(Epzoomm);
+        Epson.add(Eppicmute);
+        Epson.add(Epkeylock);
+        Epson.add(Epselect);
+        Epson.add(Epup);
+        Epson.add(Epdown);
+        Epson.add(Epleft);
+        Epson.add(Epright);
+        Epson.add(Epvolup);
+        Epson.add(Epvoldown);
+        Samsung.add(Samp);
+        Samsung.add(SamOn);
+        Samsung.add(SamOff);
+        Samsung.add(Saminput);
+        Samsung.add(Samfocusp);
+        Samsung.add(Samfocusm);
+        Samsung.add(Sambrightnessp);
+        Samsung.add(Sambrightnessm);
+        Samsung.add(Samcontrastp);
+        Samsung.add(Samcontrastm);
+        Samsung.add(Samsetup);
+        Samsung.add(Samzoomp);
+        Samsung.add(Samzoomm);
+        Samsung.add(Sampicmute);
+        Samsung.add(Samkeylock);
+        Samsung.add(Samselect);
+        Samsung.add(Samup);
+        Samsung.add(Samdown);
+        Samsung.add(Samleft);
+        Samsung.add(Samright);
+        Samsung.add(Samvolup);
+        Samsung.add(Samvoldown);
+    }
+
+    public int getFr(String brand) {
+        int fr = 0;
+        switch (brand) {
+            case ("NEC"):
+                fr = 38000;
+                break;
+            case ("EPSON"):
+                fr = 38000;
+                break;
+            case ("SAMSUNG"):
+                fr = 38000;
+                break;
+            default:
+                fr = 38000;
+                break;
+        }
+
+        return fr;
+    }
+
+    public int[] getCommand(String command, String brand) {
+        //loop through to find command index
+        int index = 0;
+        for (int i = 0; i < funcs.length; i++) {
+            if (command.equalsIgnoreCase(funcs[i])) {
+                index = i;
+                break;
+            }
+        }
+
+        int[] ans;
+        switch (brand) {
+            case "NEC":
+                ans = NEC.get(index);
+                break;
+            case "EPSON":
+                ans = NEC.get(index);
+                break;
+            case "SAMSUNG":
+                ans = NEC.get(index);
+                break;
+            default:
+                ans = NEC.get(index);
+                break;
+        }
+
+        return ans;
+    }
+
     final int[] NECp = {9024, 4512, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564,
             564, 564, 564, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 564, 564, 564, 564, 1692, 564, 564, 564,
             564, 564, 564, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 564, 564, 1692, 564, 1692, 564, 1692, 564, 1692, 564, 40884};
@@ -155,127 +279,4 @@ public class BrandConst {
     final int[] Samright = {};
     final int[] Samvolup = {};
     final int[] Samvoldown = {};
-
-    //I understand that this is super immature code
-    public BrandConst() {
-        NEC = new ArrayList<>();
-        Epson = new ArrayList<>();
-        Samsung = new ArrayList<>();
-
-        NEC.add(NECp);
-        NEC.add(NECpOn);
-        NEC.add(NECpOff);
-        NEC.add(NECinput);
-        NEC.add(NECfocusp);
-        NEC.add(NECfocusm);
-        NEC.add(NECbrightnessp);
-        NEC.add(NECbrightnessm);
-        NEC.add(NECcontrastp);
-        NEC.add(NECcontrastm);
-        NEC.add(NECsetup);
-        NEC.add(NECzoomp);
-        NEC.add(NECzoomm);
-        NEC.add(NECpicmute);
-        NEC.add(NECkeylock);
-        NEC.add(NECselect);
-        NEC.add(NECup);
-        NEC.add(NECdown);
-        NEC.add(NECleft);
-        NEC.add(NECright);
-        NEC.add(NECvolup);
-        NEC.add(NECvoldown);
-        Epson.add(Epp);
-        Epson.add(EppOn);
-        Epson.add(EppOff);
-        Epson.add(Epinput);
-        Epson.add(Epfocusp);
-        Epson.add(Epfocusm);
-        Epson.add(Epbrightnessp);
-        Epson.add(Epbrightnessm);
-        Epson.add(Epcontrastp);
-        Epson.add(Epcontrastm);
-        Epson.add(Epsetup);
-        Epson.add(Epzoomp);
-        Epson.add(Epzoomm);
-        Epson.add(Eppicmute);
-        Epson.add(Epkeylock);
-        Epson.add(Epselect);
-        Epson.add(Epup);
-        Epson.add(Epdown);
-        Epson.add(Epleft);
-        Epson.add(Epright);
-        Epson.add(Epvolup);
-        Epson.add(Epvoldown);
-        Samsung.add(Samp);
-        Samsung.add(SamOn);
-        Samsung.add(SamOff);
-        Samsung.add(Saminput);
-        Samsung.add(Samfocusp);
-        Samsung.add(Samfocusm);
-        Samsung.add(Sambrightnessp);
-        Samsung.add(Sambrightnessm);
-        Samsung.add(Samcontrastp);
-        Samsung.add(Samcontrastm);
-        Samsung.add(Samsetup);
-        Samsung.add(Samzoomp);
-        Samsung.add(Samzoomm);
-        Samsung.add(Sampicmute);
-        Samsung.add(Samkeylock);
-        Samsung.add(Samselect);
-        Samsung.add(Samup);
-        Samsung.add(Samdown);
-        Samsung.add(Samleft);
-        Samsung.add(Samright);
-        Samsung.add(Samvolup);
-        Samsung.add(Samvoldown);
-    }
-
-    public int getFr(String brand) {
-        int fr = 0;
-        switch (brand) {
-            case ("NEC"):
-                fr = 38000;
-                break;
-            case ("EPSON"):
-                fr = 38000;
-                break;
-            case ("SAMSUNG"):
-                fr = 38000;
-                break;
-            default:
-                fr = 38000;
-                break;
-        }
-
-        return fr;
-    }
-
-    public int[] getCommand(String command, String brand) {
-        //loop through to find command index
-        int index = 0;
-        for (int i = 0; i < funcs.length; i++) {
-            if (command.equalsIgnoreCase(funcs[i])) {
-                index = i;
-                break;
-            }
-        }
-
-        int[] ans;
-        switch (brand) {
-            case "NEC":
-                ans = NEC.get(index);
-                break;
-            case "EPSON":
-                ans = NEC.get(index);
-                break;
-            case "SAMSUNG":
-                ans = NEC.get(index);
-                break;
-            default:
-                ans = NEC.get(index);
-                break;
-        }
-
-        return ans;
-    }
 }
