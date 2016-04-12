@@ -48,238 +48,335 @@ public class IRUtil {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("power", curBrand));
+                ir.transmit(fr, brandConst.getCommand("power", curBrand));
+            }
+        }).start();
     }
 
     public void powerOn() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("poweron", curBrand));
+                ir.transmit(fr, brandConst.getCommand("poweron", curBrand));
+            }
+        }).start();
     }
 
     public void powerOff() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        if (!overridePrompt) { //if override prompt is enabled, send command twice, to bypass the "Are you sure?" dialog and automatically turn projector off
-            ir.transmit(fr, brandConst.getCommand("poweroff", curBrand));
-            try {
-                Thread.sleep(125);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                if (!overridePrompt) { //if override prompt is enabled, send command twice, to bypass the "Are you sure?" dialog and automatically turn projector off
+                    ir.transmit(fr, brandConst.getCommand("poweroff", curBrand));
+                    try {
+                        Thread.sleep(125);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    ir.transmit(fr, brandConst.getCommand("poweroff", curBrand));
+                } else {
+                    ir.transmit(fr, brandConst.getCommand("poweroff", curBrand));
+                }
             }
-            ir.transmit(fr, brandConst.getCommand("poweroff", curBrand));
-        } else {
-            ir.transmit(fr, brandConst.getCommand("poweroff", curBrand));
-        }
+        }).start();
     }
 
     public void input() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("input", curBrand));
+                ir.transmit(fr, brandConst.getCommand("input", curBrand));
+            }
+        }).start();
     }
 
     public void focusP() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("focusp", curBrand));
+                ir.transmit(fr, brandConst.getCommand("focusp", curBrand));
+            }
+        }).start();
     }
 
     public void focusM() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("focusm", curBrand));
+                ir.transmit(fr, brandConst.getCommand("focusm", curBrand));
+            }
+        }).start();
     }
 
     public void brightnessP() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("brightnessp", curBrand));
+                ir.transmit(fr, brandConst.getCommand("brightnessp", curBrand));
+            }
+        }).start();
     }
 
     public void brightnessM() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("brightnessm", curBrand));
+                ir.transmit(fr, brandConst.getCommand("brightnessm", curBrand));
+            }
+        }).start();
     }
 
     public void zoomP() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("zoomp", curBrand));
+                ir.transmit(fr, brandConst.getCommand("zoomp", curBrand));
+            }
+        }).start();
     }
 
     public void zoomM() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("zoomm", curBrand));
+                ir.transmit(fr, brandConst.getCommand("zoomm", curBrand));
+            }
+        }).start();
     }
 
     public void pictureMute() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("picmute", curBrand));
+                ir.transmit(fr, brandConst.getCommand("picmute", curBrand));
+            }
+        }).start();
     }
 
     public void setup() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("setup", curBrand));
+                ir.transmit(fr, brandConst.getCommand("setup", curBrand));
+            }
+        }).start();
     }
 
     public void keyLock() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("keylock", curBrand));
+                ir.transmit(fr, brandConst.getCommand("keylock", curBrand));
+            }
+        }).start();
     }
 
     public void select() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("select", curBrand));
+                ir.transmit(fr, brandConst.getCommand("select", curBrand));
+            }
+        }).start();
     }
 
     public void up() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("up", curBrand));
+                ir.transmit(fr, brandConst.getCommand("up", curBrand));
+            }
+        }).start();
     }
 
     public void down() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("down", curBrand));
+                ir.transmit(fr, brandConst.getCommand("down", curBrand));
+            }
+        }).start();
     }
 
     public void left() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("left", curBrand));
+                ir.transmit(fr, brandConst.getCommand("left", curBrand));
+            }
+        }).start();
     }
 
     public void right() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("right", curBrand));
+                ir.transmit(fr, brandConst.getCommand("right", curBrand));
+            }
+        }).start();
     }
 
     public void volUp() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("volup", curBrand));
+                ir.transmit(fr, brandConst.getCommand("volup", curBrand));
+            }
+        }).start();
     }
 
     public void volDown() {
         if (!willWork()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (delay) {
+                    runDelay();
+                }
 
-        ir.transmit(fr, brandConst.getCommand("voldown", curBrand));
+                ir.transmit(fr, brandConst.getCommand("voldown", curBrand));
+            }
+        }).start();
     }
 
     public void rapidMode() {
         if (!ir.hasIrEmitter()) {
             return;
-        }
-        if (delay) {
-            runDelay();
         }
         final boolean tempDelay = delay;
         delay = false;
@@ -290,6 +387,9 @@ public class IRUtil {
 
             @Override
             public void run() {
+                if (delay) {
+                    runDelay();
+                }
                 for (int i = 0; i < 15; i++) {
                     int t = rnd.nextInt(3);
                     if (t == 0) {
@@ -349,9 +449,6 @@ public class IRUtil {
         if (!ir.hasIrEmitter()) {
             return;
         }
-        if (delay) {
-            runDelay();
-        }
         final boolean tempDelay = delay;
         delay = false;
 
@@ -359,6 +456,9 @@ public class IRUtil {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                if (delay) {
+                    runDelay();
+                }
                 for (int i = 0; i < 10; i++) {
                     //zoom in 5 times
                     for (int y = 0; y < 5; y++) {
