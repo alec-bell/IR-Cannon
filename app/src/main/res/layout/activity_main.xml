@@ -32,17 +32,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:id="@+id/ll1">
+
             <TextView
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="@dimen/menu_margin"
                 android:paddingTop="5dp"
                 android:paddingLeft="5dp"
-                android:layout_height="wrap_content"
                 android:textColor="#ffffff"
                 android:id="@+id/tvBrand"
+                android:layout_weight="1"
                 android:text="Samsung Device Remote"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/menu_margin"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:textColor="#ffffff"
+                android:id="@+id/delay"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="NO DELAY"/>
+
         </LinearLayout>
 
 
