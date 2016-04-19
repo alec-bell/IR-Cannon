@@ -105,11 +105,17 @@ public class MainActivity extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        if (delay) {
-                            runDelayNoColorChange();
-                        }
-
                         if(isOn) {
+                            if(delay) {
+                                //change button to orange to signify delay
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        power.setBackgroundColor(Color.rgb(255, 140, 0));
+                                    }
+                                });
+                                runDelayNoColorChange();
+                            }
                             irUtil.powerOff();
                             isOn = false;
                             //change button to green
@@ -120,6 +126,16 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                         } else {
+                            if(delay) {
+                                //change button to light green to signify delay
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        power.setBackgroundColor(Color.rgb(60, 179, 113));
+                                    }
+                                });
+                                runDelayNoColorChange();
+                            }
                             irUtil.powerOn();
                             isOn = true;
                             //change button to red
