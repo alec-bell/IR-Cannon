@@ -10,6 +10,11 @@ import java.util.List;
  */
 public class CommandQueue implements Runnable {
 
+    //command format: (command name)+(command delay time)
+    //           example:  "poweron_15" = powerOn() with delay of 15 seconds
+    //                      "picmute_0" = picmute() with no delay
+
+
     private List<String> queue;
     private IRUtil irUtil;
 
