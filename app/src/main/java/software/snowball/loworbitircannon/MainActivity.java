@@ -5,16 +5,13 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.hardware.ConsumerIrManager;
-import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -485,30 +482,21 @@ public class MainActivity extends AppCompatActivity {
         String brandName = preferences.getString("brand", defaultBrandName);
         irUtil.setCurBrand(brandName);
 
-
         //set type of device
         String defaultDeviceType = getResources().getString(R.string.pref_general_device);
         String deviceType = preferences.getString("device", defaultDeviceType);
         irUtil.setDeviceType(deviceType);
 
-        setDelayDescription();
-        setRemoteDescription();
-    }
-
-    public static class SettingsFragment extends PreferenceFragment {
-
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-            addPreferencesFromResource(R.xml.pref_general);
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = super.onCreateView(inflater, container, savedInstanceState);
-            view.setBackgroundColor(getResources().getColor(android.R.color.white));
-            return view;
+        //set app theme
+        String defaultTheme = getResources().getString(R.string.pref_general_theme);
+        String theme = preferences.getString("theme", defaultTheme);
+        if(theme.equals("STEALTH")) {
+            finish();
+            Intent stealth = new Intent(getApplicationContext(), ListCommands.class);
+            startActivity(stealth);
+        } else {
+            setDelayDescription();
+            setRemoteDescription();
         }
     }
 }

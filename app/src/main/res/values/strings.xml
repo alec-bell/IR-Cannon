@@ -2,6 +2,9 @@
     <!--General app strings!-->
         <string name="app_name">IR Cannon</string>
 
+    <!--Stealth layout strings!-->
+
+
     <!--About activity strings!-->
         <string name="title_activity_about">About</string>
 

@@ -77,13 +77,13 @@
 
         <!--app themes!-->
             <string-array name="pref_general_themes">
-                <item>Dark</item>
-                <item>Light</item>
+                <item>Remote</item>
+                <item>Stealth</item>
             </string-array>
 
-            <string-array name="pref_general_themes_values">
-                <item>DARK</item>
-                <item>LIGHT</item>
+            <string-array name="themes_values">
+                <item>REMOTE</item>
+                <item>STEALTH</item>
             </string-array>
 
 </resources>

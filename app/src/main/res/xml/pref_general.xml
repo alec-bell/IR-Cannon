@@ -46,10 +46,10 @@
         />
 
         <ListPreference
-            android:defaultValue="DARK"
+            android:defaultValue="REMOTE"
             android:entries="@array/pref_general_themes"
-            android:entryValues="@array/pref_general_themes_values"
-            android:key="theme_list"
+            android:entryValues="@array/themes_values"
+            android:key="theme"
             android:title="@string/pref_general_theme" />
 
     </PreferenceCategory>
