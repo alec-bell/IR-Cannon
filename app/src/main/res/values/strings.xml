@@ -27,11 +27,11 @@
         <string name="pref_title_general">General</string>
 
             <!--device brand!-->
-                <string name="pref_general_brand">NEC</string>
+                <string name="pref_general_brand">SAMSUNG</string>
                 <string name="pref_general_brand_summary">Choose the brand of your device.</string>
 
             <!--device type!-->
-                <string name="pref_general_device">PROJECTOR</string>
+                <string name="pref_general_device">TV</string>
                 <string name="pref_general_device_summary">Choose the type of your device.</string>
 
             <!--device theme!-->

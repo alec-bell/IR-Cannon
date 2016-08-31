@@ -33,7 +33,7 @@
             android:entries="@array/pref_general_brands"
             android:entryValues="@array/brands_values"
             android:key="brand"
-            android:title="@string/pref_general_brand"
+            android:title="Device Brand"
             android:summary="@string/pref_general_brand_summary"/>
 
         <ListPreference
@@ -41,16 +41,16 @@
             android:entries="@array/pref_general_devices"
             android:entryValues="@array/devices_values"
             android:key="device"
-            android:title="@string/pref_general_device"
+            android:title="Device Type"
             android:summary="@string/pref_general_device_summary"
         />
 
-        <ListPreference
+        <!--<ListPreference
             android:defaultValue="REMOTE"
             android:entries="@array/pref_general_themes"
             android:entryValues="@array/themes_values"
             android:key="theme"
-            android:title="@string/pref_general_theme" />
+            android:title="@string/pref_general_theme" />-->
 
     </PreferenceCategory>
 
